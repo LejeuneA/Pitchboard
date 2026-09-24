@@ -1,7 +1,7 @@
 import type { FreelanceRecord } from '../types/FreelanceRecord'
 
 
-export const freelanceRecords: FreelanceRecord = [
+export const freelanceRecords: FreelanceRecord[] = [
   {
     id: 1,
     date: '10.09.2026',
