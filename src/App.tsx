@@ -2,7 +2,7 @@ function App() {
 
   return (
     <>
-      <h1>Pichboard</h1>
+      <h1>Pitchboard</h1>
     </>
   )
 }
