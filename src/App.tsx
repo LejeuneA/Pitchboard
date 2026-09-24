@@ -1,4 +1,5 @@
 import { freelanceRecords } from './data/freelanceRecords'
+import { FreelanceRecordCard } from './components/FreelanceRecordCard'
 
 function App() {
 
@@ -8,7 +9,7 @@ function App() {
 
       {freelanceRecords.map((record) =>
         <div key={record.id}>
-          <p><FreelanceRecordCard /></p>
+          <FreelanceRecordCard />
         </div>)}
     </>
   )
