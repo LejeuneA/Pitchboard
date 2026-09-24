@@ -1,10 +1,8 @@
-import './App.css'
-
 function App() {
 
   return (
     <>
-
+      <h1>Pichboard</h1>
     </>
   )
 }
