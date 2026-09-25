@@ -5,6 +5,8 @@ import { careerEvidenceRecords } from './data/careerEvidenceRecords'
 import CareerEvidenceCard from './components/CareerEvidenceCard'
 import { jobApplicationRecords } from './data/jobApplicationRecords'
 import JobApplicationCard from './components/JobApplicationCard'
+import { followUpRecords } from './data/followUpRecords'
+import FollowUpCard from './components/FollowUpCard'
 
 
 
@@ -14,6 +16,7 @@ function App() {
   const [records, setRecords] = useState(freelanceRecords)
   const [evidences, setEvidences] = useState(careerEvidenceRecords)
   const [applications, setApplications] = useState(jobApplicationRecords)
+  const [follows, setFollows] = useState(followUpRecords)
 
   function handleFreelanceDelete(id: number) {
     const newRecords = records.filter((record) => record.id !== id)
@@ -29,6 +32,11 @@ function App() {
   function handleJobDelete(id: number) {
     const newApplications = applications.filter((application) => application.id !== id)
     setApplications(newApplications)
+  }
+
+  function handleFollowUplete(id: number) {
+    const newFollowUps = follows.filter((follow) => follow.id !== id)
+    setFollows(newFollowUps)
   }
 
   return (
@@ -50,6 +58,12 @@ function App() {
       {applications.map((application) =>
         <div key={application.id}>
           <JobApplicationCard item={application} onDelete={handleJobDelete} />
+        </div>
+      )}
+
+      {follows.map((follow) =>
+        <div key={follow.id}>
+          <FollowUpCard item={follow} onDelete={handleFollowUplete} />
         </div>
       )}
 
