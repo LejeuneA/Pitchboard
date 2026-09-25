@@ -1,4 +1,4 @@
-export type FreelanceRecord = {
+export type CareerEvidence = {
   id: number
   date: string
   name: string
@@ -7,10 +7,4 @@ export type FreelanceRecord = {
   entityType: 'Company' | 'Person'
   recordCategory: 'Application' | 'Partner Lead'
   status: string
-}
-
-
-export type FreelanceRecordCardProps = {
-  item: FreelanceRecord
-  onDelete: (id: number) => void
 }

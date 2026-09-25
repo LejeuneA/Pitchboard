@@ -6,6 +6,7 @@ function FreelanceRecordCard({ item, onDelete }: FreelanceRecordCardProps) {
       <p>Date: {item.date}</p>
       <p>Name: {item.name}</p>
       <p>Location: {item.location}</p>
+      <p>Web Site: {item.url}</p>
       <p>Status: {item.status}</p>
       <p>{item.entityType}</p>
       <p>{item.recordCategory}</p>
