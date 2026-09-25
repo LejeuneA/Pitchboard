@@ -3,10 +3,13 @@ import FreelanceRecordCard from './components/FreelanceRecordCard'
 import { useState } from 'react'
 
 
-const [records, setRecords] = useState<freelanceRecords[]>([
-])
 
 function App() {
+
+  const [records, setRecords] = useState({
+    freelanceRecords
+  })
+
   return (
     <>
       <h1>Pitchboard</h1>
