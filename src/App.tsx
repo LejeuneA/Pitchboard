@@ -34,7 +34,7 @@ function App() {
     setApplications(newApplications)
   }
 
-  function handleFollowUplete(id: number) {
+  function handleFollowUpDelete(id: number) {
     const newFollowUps = follows.filter((follow) => follow.id !== id)
     setFollows(newFollowUps)
   }
@@ -63,7 +63,7 @@ function App() {
 
       {follows.map((follow) =>
         <div key={follow.id}>
-          <FollowUpCard item={follow} onDelete={handleFollowUplete} />
+          <FollowUpCard item={follow} onDelete={handleFollowUpDelete} />
         </div>
       )}
 

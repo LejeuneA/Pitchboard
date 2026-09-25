@@ -8,6 +8,7 @@ function FollowUpCard({ item, onDelete }: FollowUpCardProps) {
       <p>Title: {item.title}</p>
       <p>Related to: {item.relatedTo}</p>
       <p>Source: {item.source}</p>
+      <p>Status: {item.status}</p>
       <button type='button' onClick={() => onDelete(item.id)}> Delete</button>
     </div >
   )
