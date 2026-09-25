@@ -9,7 +9,7 @@ function App() {
 
       {freelanceRecords.map((record) =>
         <div key={record.id}>
-          <FreelanceRecordCard record={record} />
+          <FreelanceRecordCard item={record} />
         </div>
       )}
     </>

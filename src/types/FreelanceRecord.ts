@@ -10,5 +10,5 @@ export type FreelanceRecord = {
 
 
 export type FreelanceRecordCardProps = {
-  record: FreelanceRecord
+  item: FreelanceRecord
 }
