@@ -1,10 +1,10 @@
-import { useState, type Key } from 'react'
+import { useState } from 'react'
 import { freelanceRecords } from './data/freelanceRecords'
 import FreelanceRecordCard from './components/FreelanceRecordCard'
 import { careerEvidenceRecords } from './data/careerEvidenceRecords'
 import CareerEvidenceCard from './components/CareerEvidenceCard'
 import { jobApplicationRecords } from './data/jobApplicationRecords'
-import JobApplicationCard from './components/JobApplicationCard.tsx'
+import JobApplicationCard from './components/JobApplicationCard'
 
 
 
