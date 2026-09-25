@@ -199,4 +199,14 @@ export const freelanceRecords: FreelanceRecord[] = [
     recordCategory: 'Partner Lead',
     status: 'Sent- Waiting for answer',
   },
+
+  {
+    id: 21,
+    date: '25.09.2026',
+    name: 'Acelya Lejeune',
+    location: 'Belgium',
+    entityType: 'Person',
+    recordCategory: 'Partner Lead',
+    status: 'Sent- Waiting for answer',
+  },
 ]
