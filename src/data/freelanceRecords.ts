@@ -200,3 +200,14 @@ export const freelanceRecords: FreelanceRecord[] = [
     status: 'Sent- Waiting for answer',
   },
 ]
+
+
+// {
+//   id: 10,
+//   date: '18.09.2026',
+//   name: 'Nathan Pichon',
+//   location: 'France',
+//   entityType: 'Person',
+//   recordCategory: 'Partner Lead',
+//    status: 'Sent- Waiting for answer',
+// },
