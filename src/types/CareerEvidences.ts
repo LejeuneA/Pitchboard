@@ -1,4 +1,4 @@
-export type CareerEvidence = {
+export type CareerEvidences = {
   id: number
   title: string
   context: string

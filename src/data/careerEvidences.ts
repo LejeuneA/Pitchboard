@@ -1,6 +1,6 @@
-import type { CareerEvidence } from '../types/CareerEvidence'
+import type { CareerEvidences } from '../types/CareerEvidences'
 
-export const careerEvidence: CareerEvidence[] = [
+export const careerEvidences: CareerEvidences[] = [
   {
     id: 1,
     title: 'Myconsultation / Operit',
