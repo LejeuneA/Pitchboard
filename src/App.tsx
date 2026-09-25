@@ -1,7 +1,8 @@
 import { freelanceRecords } from './data/freelanceRecords'
 import FreelanceRecordCard from './components/FreelanceRecordCard'
 import { useState } from 'react'
-import { careerEvidences } from './data/careerEvidences'
+import { careerEvidenceRecords } from './data/careerEvidences'
+
 
 
 
