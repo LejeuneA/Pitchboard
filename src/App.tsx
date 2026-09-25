@@ -12,10 +12,13 @@ function App() {
   const [records, setRecords] = useState(freelanceRecords)
   const [evidences, setEvidences] = useState(careerEvidenceRecords)
 
-  function handleDelete(id: number) {
+  function handleFreelanceDelete(id: number) {
     const newRecords = records.filter((record) => record.id !== id)
-    const newEvidences = evidences.filter((evidence) => evidence.id !== id)
     setRecords(newRecords)
+  }
+
+  function handleCareerDelete(id: number) {
+    const newEvidences = evidences.filter((evidence) => evidence.id !== id)
     setEvidences(newEvidences)
   }
 
@@ -25,13 +28,13 @@ function App() {
 
       {records.map((record) =>
         <div key={record.id}>
-          <FreelanceRecordCard item={record} onDelete={handleDelete} />
+          <FreelanceRecordCard item={record} onDelete={handleFreelanceDelete} />
         </div>
       )}
 
       {evidences.map((evidence) =>
         <div key={evidence.id}>
-          <CareerEvidenceCard item={evidence} onDelete={handleDelete} />
+          <CareerEvidenceCard item={evidence} onDelete={handleCareerDelete} />
         </div>
       )}
 
