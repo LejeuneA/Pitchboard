@@ -1,4 +1,4 @@
-export type FreelanceRecord = {
+export type CareerEvidence = {
   id: number
   title: string
   context: string
