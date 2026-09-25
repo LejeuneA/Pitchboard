@@ -6,9 +6,7 @@ import { useState } from 'react'
 
 function App() {
 
-  const [records, setRecords] = useState({
-    ...freelanceRecords
-  })
+  const [records, setRecords] = useState(freelanceRecords)
 
   return (
     <>
