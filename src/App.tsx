@@ -8,9 +8,9 @@ function App() {
 
   const [records, setRecords] = useState(freelanceRecords)
 
-  function handleDelete({ id }: number) {
-    records.filter((record) => record.id)
-    setRecords((records))
+  function handleDelete(id: number) {
+    const newRecords = records.filter(record.id !== 10)
+    setRecords((newRecords))
   }
 
   return (
