@@ -11,4 +11,5 @@ export type FreelanceRecord = {
 
 export type FreelanceRecordCardProps = {
   item: FreelanceRecord
+  onDelete: (id: number) => void
 }

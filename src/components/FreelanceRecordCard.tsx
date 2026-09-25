@@ -9,7 +9,8 @@ function FreelanceRecordCard({ item }: FreelanceRecordCardProps) {
       <p>Status: {item.status}</p>
       <p>{item.entityType}</p>
       <p>{item.recordCategory}</p>
-    </div>
+      <button type='button' onDelete={item.id}> Delete</button>
+    </div >
   )
 }
 

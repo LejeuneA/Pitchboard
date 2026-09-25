@@ -20,6 +20,7 @@ function App() {
       {records.map((record) =>
         <div key={record.id}>
           <FreelanceRecordCard item={record} />
+          <FreelanceRecordCard onDelete={handleDelete} />
         </div>
       )}
     </>
