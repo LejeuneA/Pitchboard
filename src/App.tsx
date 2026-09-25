@@ -7,7 +7,7 @@ import { useState } from 'react'
 function App() {
 
   const [records, setRecords] = useState({
-    freelanceRecords
+    ...freelanceRecords
   })
 
   return (
