@@ -3,16 +3,61 @@
 
 body {
   line-height: 1.5;
+  background: var(--color-bg);
+  color: var(--color-text);
 }
 
 #root {
   min-height: 100vh;
+  width: min(100% - 2rem, var(--page-width));
+  margin-inline: auto;
+  padding-block: 3rem;
+}
+
+#root>div {
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+#root>div p {
+  margin: 0.35rem 0;
+  color: var(--color-text-muted);
+}
+
+#root>div p:nth-child(2) {
+  color: var(--color-text);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+button {
+  margin-top: 1rem;
+  padding: 0.65rem 1rem;
+  background: var(--color-danger);
+  color: white;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.88;
+  }
 }
 
 h1,
 h2,
 h3 {
   line-height: 1.2;
+}
+
+h1 {
+  margin-bottom: 2rem;
+  font-size: clamp(2rem, 5vw, 3rem);
+  letter-spacing: -0.04em;
 }
 
 input,
