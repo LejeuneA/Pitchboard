@@ -7,6 +7,8 @@ import { jobApplicationRecords } from './data/jobApplicationRecords'
 import JobApplicationCard from './components/JobApplicationCard'
 import { followUpRecords } from './data/followUpRecords'
 import FollowUpCard from './components/FollowUpCard'
+import type { SubmitEvent } from 'react'
+
 
 
 
@@ -43,6 +45,16 @@ function App() {
     setFollows(newFollowUps)
   }
 
+  function handleFollowUpSubmit(event: SubmitEvent<HTMLFormElement>) {
+    event.preventDefault()
+
+    setDueDate('')
+    setTitle('')
+    setRelatedTo('')
+    setSource('')
+
+  }
+
   return (
     <>
       <h1>Pitchboard</h1>
@@ -71,7 +83,7 @@ function App() {
         </div>
       )}
 
-      <form action="">
+      <form onSubmit={handleFollowUpSubmit}>
         <input type="text" value={dueDate} onChange={(event) => setDueDate(event.target.value)} />
         <input type="text" value={title} onChange={(event) => setTitle(event.target.value)} />
         <input type="text" value={relatedTo} onChange={(event) => setRelatedTo(event.target.value)} />
@@ -79,6 +91,7 @@ function App() {
           <option value="Job Application">Job Application</option>
           <option value="Freelance">Freelance</option>
         </select>
+        <button type='submit'>Add</button>
       </form>
 
     </>
