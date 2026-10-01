@@ -17,6 +17,7 @@ function App() {
   const [evidences, setEvidences] = useState(careerEvidenceRecords)
   const [applications, setApplications] = useState(jobApplicationRecords)
   const [follows, setFollows] = useState(followUpRecords)
+  const [dueDate, setDueDate] = useState('')
 
   function handleFreelanceDelete(id: number) {
     const newRecords = records.filter((record) => record.id !== id)
@@ -37,6 +38,10 @@ function App() {
   function handleFollowUpDelete(id: number) {
     const newFollowUps = follows.filter((follow) => follow.id !== id)
     setFollows(newFollowUps)
+  }
+
+  function handleFollowUpAdd(event) {
+
   }
 
   return (
@@ -66,6 +71,10 @@ function App() {
           <FollowUpCard item={follow} onDelete={handleFollowUpDelete} />
         </div>
       )}
+
+      <form action="">
+        <input type="text" value={dueDate} />
+      </form>
 
     </>
   )
