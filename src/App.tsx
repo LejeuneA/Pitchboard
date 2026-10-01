@@ -76,8 +76,8 @@ function App() {
         <input type="text" value={title} onChange={(event) => setTitle(event.target.value)} />
         <input type="text" value={relatedTo} onChange={(event) => setRelatedTo(event.target.value)} />
         <select value={source} onChange={(event) => setSource(event.target.value)} >
-          <option value={source}>Job Application</option>
-          <option value={source}>Freelance</option>
+          <option value="job">Job Application</option>
+          <option value="freelance">Freelance</option>
         </select>
       </form>
 
