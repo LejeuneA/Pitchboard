@@ -48,10 +48,10 @@ function App() {
   function handleFollowUpSubmit(event: SubmitEvent<HTMLFormElement>) {
     event.preventDefault()
 
-    setDueDate('')
-    setTitle('')
-    setRelatedTo('')
-    setSource('')
+    setDueDate
+    setTitle
+    setRelatedTo
+    setSource
 
   }
 
