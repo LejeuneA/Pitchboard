@@ -18,6 +18,9 @@ function App() {
   const [applications, setApplications] = useState(jobApplicationRecords)
   const [follows, setFollows] = useState(followUpRecords)
   const [dueDate, setDueDate] = useState('')
+  const [title, setTitle] = useState('')
+  const [relatedTo, setRelatedTo] = useState('')
+  const [source, setSource] = useState('')
 
   function handleFreelanceDelete(id: number) {
     const newRecords = records.filter((record) => record.id !== id)
@@ -38,10 +41,6 @@ function App() {
   function handleFollowUpDelete(id: number) {
     const newFollowUps = follows.filter((follow) => follow.id !== id)
     setFollows(newFollowUps)
-  }
-
-  function handleFollowUpAdd(event) {
-
   }
 
   return (
@@ -74,6 +73,9 @@ function App() {
 
       <form action="">
         <input type="text" value={dueDate} onChange={(event) => setDueDate(event.target.value)} />
+        <input type="text" value={title} onChange={(event) => setDueDate(event.target.value)} />
+        <input type="text" value={relatedTo} onChange={(event) => setDueDate(event.target.value)} />
+        <input type="text" value={source} onChange={(event) => setDueDate(event.target.value)} />
       </form>
 
     </>
