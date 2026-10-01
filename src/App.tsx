@@ -73,7 +73,7 @@ function App() {
       )}
 
       <form action="">
-        <input type="text" value={dueDate} />
+        <input type="text" value={dueDate} onChange={(event) => setDueDate(event.target.value)} />
       </form>
 
     </>
