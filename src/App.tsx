@@ -72,7 +72,17 @@ function App() {
   }
 
   function handleFollowUpDone(id: number) {
-    const newFollowUps = follows.map((follow) => follow.id === id)
+    const newFollowUps = follows.map((follow): FollowUp => {
+      if (follow.id === id) {
+        return {
+          ...follow,
+          status: 'Done'
+        }
+      }
+
+      return follow
+    })
+
     setFollows(newFollowUps)
   }
 
