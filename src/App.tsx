@@ -49,7 +49,7 @@ function App() {
   function handleFollowUpSubmit(event: SubmitEvent<HTMLFormElement>) {
     event.preventDefault()
 
-    if (source === '') {
+    if (dueDate === '' || title === '' || relatedTo === '' || source === '') {
       return
     }
 
