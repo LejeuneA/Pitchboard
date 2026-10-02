@@ -110,7 +110,7 @@ function App() {
 
       {follows.map((follow) =>
         <div key={follow.id}>
-          <FollowUpCard item={follow} onDelete={handleFollowUpDelete} />
+          <FollowUpCard item={follow} onDelete={handleFollowUpDelete} onDone={handleFollowUpDone} />
         </div>
       )}
 
