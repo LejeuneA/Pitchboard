@@ -70,6 +70,10 @@ function App() {
     const newFollowUps = [...follows, newFollowUp]
     setFollows(newFollowUps)
 
+    setDueDate('')
+    setTitle('')
+    setRelatedTo('')
+    setSource('')
   }
 
   return (
