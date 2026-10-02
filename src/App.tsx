@@ -67,6 +67,9 @@ function App() {
     console.log({ relatedTo })
     console.log({ source })
 
+    const newFollowUps = [...follows, newFollowUp]
+    setFollows(newFollowUps)
+
   }
 
   return (
