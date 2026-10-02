@@ -53,6 +53,11 @@ function App() {
     setRelatedTo
     setSource
 
+    console.log({ dueDate })
+    console.log({ title })
+    console.log({ relatedTo })
+    console.log({ source })
+
   }
 
   return (
