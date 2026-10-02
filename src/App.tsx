@@ -90,10 +90,11 @@ function App() {
   }
 
   const visibleFollowUps =
-    followUpFilter ?
-      followUpFilter === 'Pending' ? follows.filter((follow) => follow.status === 'Pending')
+    followUpFilter === 'All'
+      ? follows
+      : followUpFilter === 'Pending' ? follows.filter((follow) => follow.status === 'Pending')
         : follows.filter((follow) => follow.status === 'Done')
-      : follows
+
 
 
   return (
