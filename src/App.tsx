@@ -24,7 +24,7 @@ function App() {
   const [title, setTitle] = useState('')
   const [relatedTo, setRelatedTo] = useState('')
   const [source, setSource] = useState<FollowUp['source'] | ''>('')
-  const [followUpFilter, setFollowUpFilter] = useState<'All' | 'Pending'>('All')
+  const [followUpFilter, setFollowUpFilter] = useState<'All' | 'Pending' | 'Done'>('All')
 
 
 
@@ -89,9 +89,11 @@ function App() {
     setFollows(newFollowUps)
   }
 
-  const visibleFollowUps = followUpFilter === 'Pending'
-    ? follows.filter((follow) => follow.status === 'Pending')
-    : follows
+  const visibleFollowUps =
+    followUpFilter ?
+      followUpFilter === 'Pending' ? follows.filter((follow) => follow.status === 'Pending')
+        : follows.filter((follow) => follow.status === 'Done')
+      : follows
 
 
   return (
@@ -129,6 +131,13 @@ function App() {
           onClick={() => setFollowUpFilter('Pending')}
         >
           Pending
+        </button>
+
+        <button
+          type="button"
+          onClick={() => setFollowUpFilter('Done')}
+        >
+          Done
         </button>
       </div>
 
