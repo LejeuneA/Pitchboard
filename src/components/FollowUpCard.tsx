@@ -1,7 +1,7 @@
 import type { FollowUpCardProps } from '../types/FollowUp'
 
 
-function FollowUpCard({ item, onDelete }: FollowUpCardProps) {
+function FollowUpCard({ item, onDelete, onDone }: FollowUpCardProps) {
   return (
     <div>
       <p>Due Date: {item.dueDate}</p>
@@ -10,6 +10,7 @@ function FollowUpCard({ item, onDelete }: FollowUpCardProps) {
       <p>Source: {item.source}</p>
       <p>Status: {item.status}</p>
       <button type='button' onClick={() => onDelete(item.id)}> Delete</button>
+      <button type='button' onClick={() => onDone(item.id)}> Done</button>
     </div >
   )
 }
