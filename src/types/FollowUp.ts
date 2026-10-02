@@ -11,4 +11,5 @@ export type FollowUp = {
 export type FollowUpCardProps = {
   item: FollowUp
   onDelete: (id: number) => void
+  onDone: (id: number) => void
 }
