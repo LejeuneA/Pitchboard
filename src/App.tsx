@@ -7,6 +7,7 @@ import { jobApplicationRecords } from './data/jobApplicationRecords'
 import JobApplicationCard from './components/JobApplicationCard'
 import { followUpRecords } from './data/followUpRecords'
 import FollowUpCard from './components/FollowUpCard'
+import type { FollowUp } from './types/FollowUp'
 import type { SubmitEvent } from 'react'
 
 
@@ -22,7 +23,7 @@ function App() {
   const [dueDate, setDueDate] = useState('')
   const [title, setTitle] = useState('')
   const [relatedTo, setRelatedTo] = useState('')
-  const [source, setSource] = useState('')
+  const [source, setSource] = useState<FollowUp['source'] | ''>('')
 
   function handleFreelanceDelete(id: number) {
     const newRecords = records.filter((record) => record.id !== id)
@@ -48,7 +49,11 @@ function App() {
   function handleFollowUpSubmit(event: SubmitEvent<HTMLFormElement>) {
     event.preventDefault()
 
-    const newFollowUp = {
+    if (source === '') {
+      return
+    }
+
+    const newFollowUp: FollowUp = {
       id: Date.now(),
       dueDate,
       title,
