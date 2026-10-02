@@ -103,12 +103,21 @@ function App() {
         <input type="text" value={dueDate} onChange={(event) => setDueDate(event.target.value)} />
         <input type="text" value={title} onChange={(event) => setTitle(event.target.value)} />
         <input type="text" value={relatedTo} onChange={(event) => setRelatedTo(event.target.value)} />
-        <select value={source} onChange={(event) => setSource(event.target.value)} >
+        <select
+          value={source}
+          onChange={(event) => {
+            const value = event.target.value
+
+            if (value === 'Job Application' || value === 'Freelance') {
+              setSource(value)
+            }
+          }}
+        >
           <option value="Job Application">Job Application</option>
           <option value="Freelance">Freelance</option>
         </select>
         <button type='submit'>Add</button>
-      </form>
+      </form >
 
     </>
   )
