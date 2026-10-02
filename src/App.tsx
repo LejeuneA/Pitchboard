@@ -48,6 +48,15 @@ function App() {
   function handleFollowUpSubmit(event: SubmitEvent<HTMLFormElement>) {
     event.preventDefault()
 
+    const newFollowUp = {
+      id: Date.now(),
+      dueDate,
+      title,
+      relatedTo,
+      source,
+      status: 'Pending'
+    }
+
     console.log({ dueDate })
     console.log({ title })
     console.log({ relatedTo })
