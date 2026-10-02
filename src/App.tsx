@@ -116,19 +116,21 @@ function App() {
         </div>
       )}
 
-      <button
-        type="button"
-        onClick={() => setFollowUpFilter('All')}
-      >
-        All
-      </button>
+      <div className="follow-up-filters">
+        <button
+          type="button"
+          onClick={() => setFollowUpFilter('All')}
+        >
+          All
+        </button>
 
-      <button
-        type="button"
-        onClick={() => setFollowUpFilter('Pending')}
-      >
-        Pending
-      </button>
+        <button
+          type="button"
+          onClick={() => setFollowUpFilter('Pending')}
+        >
+          Pending
+        </button>
+      </div>
 
       {visibleFollowUps.map((follow) =>
         <div key={follow.id}>
