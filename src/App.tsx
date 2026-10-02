@@ -71,6 +71,11 @@ function App() {
     setSource('')
   }
 
+  function handleFollowUpDone(id: number) {
+    const newFollowUps = follows.map((follow) => follow.id === id)
+    setFollows(newFollowUps)
+  }
+
   return (
     <>
       <h1>Pitchboard</h1>
