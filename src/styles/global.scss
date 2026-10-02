@@ -167,10 +167,10 @@ form button {
 #root > button {
   place-self: start;
   width: auto;
-  min-width: 96px;
-  height: 36px;
-  min-height: 36px;
-  padding: 0 0.9rem;
+  min-width: 88px;
+  height: 34px;
+  min-height: 34px;
+  padding: 0 0.85rem;
   border-radius: var(--radius-sm);
   background: var(--color-primary);
   box-shadow: var(--shadow-sm);
@@ -181,11 +181,16 @@ form button {
   }
 }
 
-#root > button + button {
-  background: #a86112;
+#root > button:first-of-type {
+  grid-column: 1;
+}
+
+#root > button:last-of-type {
+  grid-column: 2 / -1;
+  background: #7a5a2a;
 
   &:hover {
-    background: #8f520e;
+    background: #66491f;
   }
 }
 
