@@ -188,10 +188,35 @@ form button {
   }
 
   button + button {
-    background: #2f6f57;
+    background: #47796b;
 
     &:hover {
-      background: #285f4b;
+      background: #3b665a;
+      opacity: 1;
+    }
+  }
+}
+
+#root > div:not(.follow-up-filters):has(button + button) {
+  p:last-of-type {
+    color: #2f5f52;
+    font-weight: 700;
+  }
+
+  button:first-of-type {
+    background: #a9473a;
+
+    &:hover {
+      background: #913b31;
+      opacity: 1;
+    }
+  }
+
+  button:nth-of-type(2) {
+    background: #47796b;
+
+    &:hover {
+      background: #3b665a;
       opacity: 1;
     }
   }
