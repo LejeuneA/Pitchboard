@@ -187,7 +187,16 @@ form button {
     background: var(--color-primary);
   }
 
-  button + button {
+  button:nth-child(2) {
+    background: #b7791f;
+
+    &:hover {
+      background: #996515;
+      opacity: 1;
+    }
+  }
+
+  button:nth-child(3) {
     background: #47796b;
 
     &:hover {
@@ -197,9 +206,18 @@ form button {
   }
 }
 
-#root > div:not(.follow-up-filters):has(button + button) {
+#root > div:has(> .follow-up-card.is-pending) {
+  border-color: #d7b36a;
+  background: #fffaf0;
+}
+
+#root > div:has(> .follow-up-card.is-done) {
+  border-color: #9abdae;
+  background: #f3f8f5;
+}
+
+.follow-up-card {
   p:last-of-type {
-    color: #2f5f52;
     font-weight: 700;
   }
 
@@ -212,12 +230,33 @@ form button {
     }
   }
 
-  button:nth-of-type(2) {
-    background: #47796b;
+  &.is-pending {
+    p:last-of-type {
+      color: #9a6618;
+    }
 
-    &:hover {
-      background: #3b665a;
-      opacity: 1;
+    button:nth-of-type(2) {
+      background: #47796b;
+
+      &:hover {
+        background: #3b665a;
+        opacity: 1;
+      }
+    }
+  }
+
+  &.is-done {
+    p:last-of-type {
+      color: #2f6a56;
+    }
+
+    button:nth-of-type(2) {
+      background: #b7791f;
+
+      &:hover {
+        background: #996515;
+        opacity: 1;
+      }
     }
   }
 }
