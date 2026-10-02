@@ -62,11 +62,6 @@ function App() {
       status: 'Pending'
     }
 
-    console.log({ dueDate })
-    console.log({ title })
-    console.log({ relatedTo })
-    console.log({ source })
-
     const newFollowUps = [...follows, newFollowUp]
     setFollows(newFollowUps)
 
