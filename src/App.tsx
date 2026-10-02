@@ -162,6 +162,7 @@ function App() {
             }
           }}
         >
+          <option value="" disabled>Select source</option>
           <option value="Job Application">Job Application</option>
           <option value="Freelance">Freelance</option>
         </select>
