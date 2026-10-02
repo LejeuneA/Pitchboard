@@ -24,6 +24,9 @@ function App() {
   const [title, setTitle] = useState('')
   const [relatedTo, setRelatedTo] = useState('')
   const [source, setSource] = useState<FollowUp['source'] | ''>('')
+  const [followUpFilter, setFollowUpFilter] = useState<'All' | 'Pending'>('All')
+
+
 
   function handleFreelanceDelete(id: number) {
     const newRecords = records.filter((record) => record.id !== id)
@@ -85,6 +88,11 @@ function App() {
 
     setFollows(newFollowUps)
   }
+
+  const visibleFollowUps = followUpFilter === 'Pending'
+    ? follows.filter((follow) => follow.status === 'Pending')
+    : follows
+
 
   return (
     <>
