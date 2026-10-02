@@ -116,7 +116,21 @@ function App() {
         </div>
       )}
 
-      {follows.map((follow) =>
+      <button
+        type="button"
+        onClick={() => setFollowUpFilter('All')}
+      >
+        All
+      </button>
+
+      <button
+        type="button"
+        onClick={() => setFollowUpFilter('Pending')}
+      >
+        Pending
+      </button>
+
+      {visibleFollowUps.map((follow) =>
         <div key={follow.id}>
           <FollowUpCard item={follow} onDelete={handleFollowUpDelete} onDone={handleFollowUpDone} />
         </div>
