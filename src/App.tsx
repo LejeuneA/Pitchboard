@@ -76,7 +76,7 @@ function App() {
       if (follow.id === id) {
         return {
           ...follow,
-          status: 'Done'
+          status: follow.status === 'Pending' ? 'Done' : 'Pending'
         }
       }
 
