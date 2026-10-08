@@ -25,7 +25,6 @@ function App() {
   const [relatedTo, setRelatedTo] = useState('')
   const [source, setSource] = useState<FollowUp['source'] | ''>('')
   const [followUpFilter, setFollowUpFilter] = useState<'All' | 'Pending' | 'Done'>('All')
-  const [editingFollowUpId, setEditingFollowUpId] = useState<null | number>(null)
 
 
 
