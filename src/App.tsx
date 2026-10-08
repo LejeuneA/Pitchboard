@@ -98,8 +98,17 @@ function App() {
 
 
   function handleFollowUpEdit(id: number) {
-    const newFollowUp = follows.filter((follow) => follow.id === id)
-    setEditingFollowUpId(newFollowUp)
+    const editedFollowUp = follows.map((follow): FollowUp => {
+      if (follow.id === id) {
+        return {
+          ...follow,
+        }
+      }
+
+      return follow
+    })
+
+    setEditingFollowUpId(editedFollowUp)
   }
 
   return (
