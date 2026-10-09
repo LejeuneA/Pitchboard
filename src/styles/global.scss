@@ -32,6 +32,53 @@ h1 {
   letter-spacing: -0.04em;
 }
 
+.section-nav {
+  grid-column: 1 / -1;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+
+  button {
+    width: auto;
+    min-width: 130px;
+    margin: 0;
+    border-radius: var(--radius-sm);
+    opacity: 0.82;
+
+    &:hover,
+    &.is-active {
+      opacity: 1;
+      transform: translateY(-1px);
+    }
+
+    &.is-active {
+      box-shadow: 0 0 0 2px rgb(255 255 255 / 0.85), 0 0 0 4px currentColor;
+    }
+  }
+
+  .nav-freelance {
+    background: #3f6f8f;
+  }
+
+  .nav-jobs {
+    background: #6d5a8e;
+  }
+
+  .nav-followups {
+    background: #4f5f8f;
+  }
+
+  .nav-career {
+    background: #8a6742;
+  }
+}
+
 #root > div:not(.follow-up-filters) {
   min-width: 0;
   padding: 1.25rem;
@@ -212,6 +259,35 @@ form button {
       opacity: 1;
     }
   }
+}
+
+
+#root > div:has(> .freelance-card) {
+  border-color: #9eb8c8;
+  background: #f4f8fb;
+}
+
+#root > div:has(> .job-card) {
+  border-color: #b6a6c8;
+  background: #f7f5fa;
+}
+
+#root > div:has(> .career-card) {
+  border-color: #cbb58f;
+  background: #fbf8f2;
+}
+
+.freelance-card .card-information p:nth-child(2) {
+  color: #315b75;
+}
+
+.job-card .card-information p:nth-child(2) {
+  color: #5b4778;
+}
+
+.career-card p:first-child {
+  color: #725536;
+  font-weight: 700;
 }
 
 #root > div:has(> .follow-up-card.is-pending) {
