@@ -35,6 +35,8 @@ h1 {
 #root > div:not(.follow-up-filters) {
   min-width: 0;
   padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
@@ -53,8 +55,9 @@ h1 {
 
   > div {
     display: flex;
+    flex: 1;
     flex-direction: column;
-    height: 100%;
+    min-height: 0;
   }
 
   p {
@@ -213,26 +216,27 @@ form button {
 
 #root > div:not(.follow-up-filters) > div:has(> p:nth-of-type(7)):not(.follow-up-card) {
   p:last-of-type {
-    margin-bottom: auto;
+    margin-bottom: 1rem;
   }
 
   button:first-of-type {
-    margin-top: 1rem;
+    margin-top: auto;
   }
 }
 
 .follow-up-card {
   display: flex;
+  flex: 1;
   flex-direction: column;
-  height: 100%;
+  min-height: 0;
 
   p:last-of-type {
-    margin-bottom: auto;
+    margin-bottom: 1rem;
     font-weight: 700;
   }
 
   button:first-of-type {
-    margin-top: 1rem;
+    margin-top: auto;
     background: #4f5f8f;
 
     &:hover {
