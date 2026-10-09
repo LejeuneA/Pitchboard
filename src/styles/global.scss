@@ -262,24 +262,17 @@ form button {
 }
 
 .form-actions {
-  display: flex;
+  grid-column: 3 / 5;
+  justify-self: end;
+
+  display: grid;
+  grid-template-columns: repeat(2, minmax(140px, 180px));
   gap: 0.5rem;
   align-self: end;
 
   button {
-    flex: 1 1 0;
+    width: 100%;
     min-width: 0;
-  }
-
-  &:has(button + button) {
-    grid-column: 1 / -1;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    align-self: stretch;
-
-    button {
-      width: 100%;
-    }
   }
 }
 
@@ -472,6 +465,12 @@ a:focus-visible {
     button {
       grid-column: 1 / -1;
     }
+  }
+
+  .form-actions {
+    grid-column: 1 / -1;
+    justify-self: stretch;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
