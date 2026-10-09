@@ -79,13 +79,23 @@ h1 {
 
   button {
     align-self: stretch;
-    margin-top: 0.9rem;
   }
 
-  button + button {
-    margin-top: 0.5rem;
+  > div:has(> .card-information) {
+    justify-content: space-between;
   }
 
+}
+
+.card-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+
+  button {
+    margin: 0;
+  }
 }
 
 form {
@@ -214,29 +224,12 @@ form button {
   background: #f3f8f5;
 }
 
-#root > div:not(.follow-up-filters) > div:has(> p:nth-of-type(7)):not(.follow-up-card) {
-  p:last-of-type {
-    margin-bottom: 1rem;
-  }
-
-  button:first-of-type {
-    margin-top: auto;
-  }
-}
-
 .follow-up-card {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  min-height: 0;
-
-  p:last-of-type {
-    margin-bottom: 1rem;
+  .card-information p:last-of-type {
     font-weight: 700;
   }
 
-  button:first-of-type {
-    margin-top: auto;
+  .card-actions button:first-child {
     background: #4f5f8f;
 
     &:hover {
@@ -245,7 +238,7 @@ form button {
     }
   }
 
-  button:nth-of-type(3) {
+  .card-actions button:nth-child(3) {
     background: #a9473a;
 
     &:hover {
@@ -255,11 +248,11 @@ form button {
   }
 
   &.is-pending {
-    p:last-of-type {
+    .card-information p:last-of-type {
       color: #9a6618;
     }
 
-    button:nth-of-type(2) {
+    .card-actions button:nth-child(2) {
       background: #47796b;
 
       &:hover {
@@ -270,11 +263,11 @@ form button {
   }
 
   &.is-done {
-    p:last-of-type {
+    .card-information p:last-of-type {
       color: #2f6a56;
     }
 
-    button:nth-of-type(2) {
+    .card-actions button:nth-child(2) {
       background: #b7791f;
 
       &:hover {
