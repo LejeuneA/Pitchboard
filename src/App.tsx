@@ -205,7 +205,7 @@ function App() {
           <option value="Job Application">Job Application</option>
           <option value="Freelance">Freelance</option>
         </select>
-        <button type='submit'>Add</button>
+        <button type='submit'> {editingFollowUpId !== null ? 'Save Changes' : 'Add'} </button>
       </form >
 
     </>
