@@ -5,7 +5,6 @@ import { careerEvidenceRecords } from './data/careerEvidenceRecords'
 import CareerEvidenceCard from './components/CareerEvidenceCard'
 import { jobApplicationRecords } from './data/jobApplicationRecords'
 import JobApplicationCard from './components/JobApplicationCard'
-import type { SubmitEvent } from 'react'
 
 
 function App() {
