@@ -3,7 +3,7 @@ import type { JobApplicationCardProps } from '../types/JobApplication'
 
 function JobApplicationCard({ item, onDelete }: JobApplicationCardProps) {
   return (
-    <div>
+    <div className="job-card">
       <div className="card-information">
         <p>Date: {item.date}</p>
         <p>Name: {item.name}</p>
