@@ -66,14 +66,6 @@ function App() {
       status: 'Pending'
     }
 
-    const newFollowUps = [...follows, newFollowUp]
-    setFollows(newFollowUps)
-
-    setDueDate('')
-    setTitle('')
-    setRelatedTo('')
-    setSource('')
-
     if (editingFollowUpId !== null) {
       const updatedFollowUps = follows.map((follow): FollowUp => {
         if (follow.id === editingFollowUpId) {
@@ -93,6 +85,16 @@ function App() {
       setEditingFollowUpId(null)
       return
     }
+
+    const newFollowUps = [...follows, newFollowUp]
+    setFollows(newFollowUps)
+
+    setDueDate('')
+    setTitle('')
+    setRelatedTo('')
+    setSource('')
+
+
   }
 
   function handleFollowUpDone(id: number) {
