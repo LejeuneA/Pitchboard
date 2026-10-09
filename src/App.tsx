@@ -183,51 +183,56 @@ function App() {
       </div>
 
       {
-        records.map((record) =>
-          <div key={record.id}>
-            <FreelanceRecordCard item={record} onDelete={handleFreelanceDelete} />
-          </div>
-        )
+        activeSection === 'Freelance' && (
+          records.map((record) =>
+            <div key={record.id}>
+              <FreelanceRecordCard item={record} onDelete={handleFreelanceDelete} />
+            </div>
+          ))
       }
 
       {
-        evidences.map((evidence) =>
-          <div key={evidence.id}>
-            <CareerEvidenceCard item={evidence} onDelete={handleCareerDelete} />
-          </div>
-        )
+        activeSection === 'CareerEvidence' && (
+          evidences.map((evidence) =>
+            <div key={evidence.id}>
+              <CareerEvidenceCard item={evidence} onDelete={handleCareerDelete} />
+            </div>
+          ))
       }
 
       {
-        applications.map((application) =>
-          <div key={application.id}>
-            <JobApplicationCard item={application} onDelete={handleJobDelete} />
-          </div>
-        )
+        activeSection === 'Jobs' && (
+          applications.map((application) =>
+            <div key={application.id}>
+              <JobApplicationCard item={application} onDelete={handleJobDelete} />
+            </div>
+          ))
       }
 
-      <div className="follow-up-filters">
-        <button
-          type="button"
-          onClick={() => setFollowUpFilter('All')}
-        >
-          All
-        </button>
+      {
+        activeSection === 'FollowUps' && (
+          <div className="follow-up-filters">
+            <button
+              type="button"
+              onClick={() => setFollowUpFilter('All')}
+            >
+              All
+            </button>
 
-        <button
-          type="button"
-          onClick={() => setFollowUpFilter('Pending')}
-        >
-          Pending
-        </button>
+            <button
+              type="button"
+              onClick={() => setFollowUpFilter('Pending')}
+            >
+              Pending
+            </button>
 
-        <button
-          type="button"
-          onClick={() => setFollowUpFilter('Done')}
-        >
-          Done
-        </button>
-      </div>
+            <button
+              type="button"
+              onClick={() => setFollowUpFilter('Done')}
+            >
+              Done
+            </button>
+          </div>
 
       {
         visibleFollowUps.map((follow) =>
@@ -267,5 +272,6 @@ function App() {
     </>
   )
 }
+
 
 export default App
