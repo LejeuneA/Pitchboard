@@ -330,40 +330,66 @@ function App() {
             }
 
             <form onSubmit={handleFreelanceRecordsSubmit}>
-              <input type="text" value={date} onChange={(event) => setDate(event.target.value)} />
-              <input type="text" value={name} onChange={(event) => setName(event.target.value)} />
-              <input type="text" value={location} onChange={(event) => setLocation(event.target.value)} />
-              <input type="text" value={url} onChange={(event) => setUrl(event.target.value)} />
-              <input type="text" value={status} onChange={(event) => setStatus(event.target.value)} />
-              <select
-                value={entityType}
-                onChange={(event) => {
-                  const value = event.target.value
+              <label>
+                Date
+                <input type="text" value={date} onChange={(event) => setDate(event.target.value)} />
+              </label>
 
-                  if (value === 'Company' || value === 'Person') {
-                    setEntityType(value)
-                  }
-                }}
-              >
-                <option value="" disabled>Select type</option>
-                <option value="Company">Company</option>
-                <option value="Person">Person</option>
-              </select>
+              <label>
+                Name
+                <input type="text" value={name} onChange={(event) => setName(event.target.value)} />
+              </label>
 
-              <select
-                value={recordCategory}
-                onChange={(event) => {
-                  const value = event.target.value
+              <label>
+                Location
+                <input type="text" value={location} onChange={(event) => setLocation(event.target.value)} />
+              </label>
 
-                  if (value === 'Application' || value === 'Partner Lead') {
-                    setRecordCategory(value)
-                  }
-                }}
-              >
-                <option value="" disabled>Select type</option>
-                <option value="Application">Application</option>
-                <option value="Partner Lead">Partner Lead</option>
-              </select>
+              <label>
+                Website
+                <input type="text" value={url} onChange={(event) => setUrl(event.target.value)} />
+              </label>
+
+              <label>
+                Status
+                <input type="text" value={status} onChange={(event) => setStatus(event.target.value)} />
+              </label>
+
+              <label>
+                Entity Type
+                <select
+                  value={entityType}
+                  onChange={(event) => {
+                    const value = event.target.value
+
+                    if (value === 'Company' || value === 'Person') {
+                      setEntityType(value)
+                    }
+                  }}
+                >
+                  <option value="" disabled>Select type</option>
+                  <option value="Company">Company</option>
+                  <option value="Person">Person</option>
+                </select>
+              </label>
+
+              <label>
+                Category
+                <select
+                  value={recordCategory}
+                  onChange={(event) => {
+                    const value = event.target.value
+
+                    if (value === 'Application' || value === 'Partner Lead') {
+                      setRecordCategory(value)
+                    }
+                  }}
+                >
+                  <option value="" disabled>Select category</option>
+                  <option value="Application">Application</option>
+                  <option value="Partner Lead">Partner Lead</option>
+                </select>
+              </label>
 
               <button type='submit'> {editingFreelanceRecordId !== null ? 'Save Changes' : 'Add'} </button>
               {editingFreelanceRecordId !== null && (
@@ -430,23 +456,39 @@ function App() {
             }
 
             <form onSubmit={handleFollowUpSubmit}>
-              <input type="text" value={dueDate} onChange={(event) => setDueDate(event.target.value)} />
-              <input type="text" value={title} onChange={(event) => setTitle(event.target.value)} />
-              <input type="text" value={relatedTo} onChange={(event) => setRelatedTo(event.target.value)} />
-              <select
-                value={source}
-                onChange={(event) => {
-                  const value = event.target.value
+              <label>
+                Due Date
+                <input type="text" value={dueDate} onChange={(event) => setDueDate(event.target.value)} />
+              </label>
 
-                  if (value === 'Job Application' || value === 'Freelance') {
-                    setSource(value)
-                  }
-                }}
-              >
-                <option value="" disabled>Select source</option>
-                <option value="Job Application">Job Application</option>
-                <option value="Freelance">Freelance</option>
-              </select>
+              <label>
+                Title
+                <input type="text" value={title} onChange={(event) => setTitle(event.target.value)} />
+              </label>
+
+              <label>
+                Related To
+                <input type="text" value={relatedTo} onChange={(event) => setRelatedTo(event.target.value)} />
+              </label>
+
+              <label>
+                Source
+                <select
+                  value={source}
+                  onChange={(event) => {
+                    const value = event.target.value
+
+                    if (value === 'Job Application' || value === 'Freelance') {
+                      setSource(value)
+                    }
+                  }}
+                >
+                  <option value="" disabled>Select source</option>
+                  <option value="Job Application">Job Application</option>
+                  <option value="Freelance">Freelance</option>
+                </select>
+              </label>
+
               <button type='submit'> {editingFollowUpId !== null ? 'Save Changes' : 'Add'} </button>
               {editingFollowUpId !== null && (
                 <button type="button" onClick={handleFollowUpCancelEdit}>
