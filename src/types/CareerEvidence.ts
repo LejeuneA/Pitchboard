@@ -10,4 +10,6 @@ export type CareerEvidence = {
 export type CareerEvidenceCardProps = {
   item: CareerEvidence
   onDelete: (id: number) => void
+  onDone: (id: number) => void
+  onEdit: (id: number) => void
 }

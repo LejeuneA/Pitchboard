@@ -13,6 +13,8 @@ function FreelanceRecordCard({ item, onDelete }: FreelanceRecordCardProps) {
         <p>{item.recordCategory}</p>
       </div>
       <div className="card-actions">
+        <button type='button' onClick={() => onEdit(item.id)}> Edit </button>
+        <button type='button' onClick={() => onDone(item.id)}> {item.status === 'Pending' ? 'Mark Done' : 'Reopen'} </button>
         <button type='button' onClick={() => onDelete(item.id)}> Delete</button>
       </div>
     </div >
