@@ -1,0 +1,199 @@
+import { useState } from 'react'
+import { followUpRecords } from '../data/followUpRecords'
+import FollowUpCard from '../components/FollowUpCard'
+import type { FollowUp } from '../types/FollowUp'
+import type { SubmitEvent } from 'react'
+
+function FollowUpSection() {
+
+  const [follows, setFollows] = useState(followUpRecords)
+  const [dueDate, setDueDate] = useState('')
+  const [title, setTitle] = useState('')
+  const [relatedTo, setRelatedTo] = useState('')
+  const [source, setSource] = useState<FollowUp['source'] | ''>('')
+  const [followUpFilter, setFollowUpFilter] = useState<'All' | 'Pending' | 'Done'>('All')
+  const [editingFollowUpId, setEditingFollowUpId] = useState<number | null>(null)
+
+  function handleFollowUpDelete(id: number) {
+    const newFollowUps = follows.filter((follow) => follow.id !== id)
+    setFollows(newFollowUps)
+  }
+
+  function handleFollowUpSubmit(event: SubmitEvent<HTMLFormElement>) {
+    event.preventDefault()
+
+    if (dueDate === '' || title === '' || relatedTo === '' || source === '') {
+      return
+    }
+
+    if (editingFollowUpId !== null) {
+      const updatedFollowUps = follows.map((follow): FollowUp => {
+        if (follow.id === editingFollowUpId) {
+          return {
+            ...follow,
+            dueDate,
+            title,
+            relatedTo,
+            source
+          }
+        }
+
+        return follow
+      })
+
+      setFollows(updatedFollowUps)
+      setEditingFollowUpId(null)
+      setDueDate('')
+      setTitle('')
+      setRelatedTo('')
+      setSource('')
+      return
+    }
+
+    const newFollowUp: FollowUp = {
+      id: Date.now(),
+      dueDate,
+      title,
+      relatedTo,
+      source,
+      status: 'Pending'
+    }
+
+    const newFollowUps = [...follows, newFollowUp]
+    setFollows(newFollowUps)
+
+    setDueDate('')
+    setTitle('')
+    setRelatedTo('')
+    setSource('')
+
+
+  }
+
+  function handleFollowUpDone(id: number) {
+    const newFollowUps = follows.map((follow): FollowUp => {
+      if (follow.id === id) {
+        return {
+          ...follow,
+          status: follow.status === 'Pending' ? 'Done' : 'Pending'
+        }
+      }
+
+      return follow
+    })
+
+    setFollows(newFollowUps)
+  }
+
+  const visibleFollowUps =
+    followUpFilter === 'All'
+      ? follows
+      : followUpFilter === 'Pending' ? follows.filter((follow) => follow.status === 'Pending')
+        : follows.filter((follow) => follow.status === 'Done')
+
+  function handleFollowUpEdit(id: number) {
+    const selectedFollowUp = follows.find((follow) => follow.id === id)
+
+    if (!selectedFollowUp) {
+      return
+    }
+
+    setEditingFollowUpId(id)
+    setDueDate(selectedFollowUp.dueDate)
+    setTitle(selectedFollowUp.title)
+    setRelatedTo(selectedFollowUp.relatedTo)
+    setSource(selectedFollowUp.source)
+  }
+
+  function handleFollowUpCancelEdit() {
+    setEditingFollowUpId(null)
+    setDueDate('')
+    setTitle('')
+    setRelatedTo('')
+    setSource('')
+
+  }
+
+
+  return (
+    <>
+      <div className="follow-up-filters">
+        <button
+          type="button"
+          onClick={() => setFollowUpFilter('All')}
+        >
+          All
+        </button>
+
+        <button
+          type="button"
+          onClick={() => setFollowUpFilter('Pending')}
+        >
+          Pending
+        </button>
+
+        <button
+          type="button"
+          onClick={() => setFollowUpFilter('Done')}
+        >
+          Done
+        </button>
+      </div>
+
+      {
+        visibleFollowUps.map((follow) =>
+          <div key={follow.id}>
+            <FollowUpCard item={follow} onDelete={handleFollowUpDelete} onDone={handleFollowUpDone} onEdit={handleFollowUpEdit} />
+          </div>
+        )
+      }
+
+      <form onSubmit={handleFollowUpSubmit}>
+        <label>
+          Due Date
+          <input type="text" value={dueDate} onChange={(event) => setDueDate(event.target.value)} />
+        </label>
+
+        <label>
+          Title
+          <input type="text" value={title} onChange={(event) => setTitle(event.target.value)} />
+        </label>
+
+        <label>
+          Related To
+          <input type="text" value={relatedTo} onChange={(event) => setRelatedTo(event.target.value)} />
+        </label>
+
+        <label>
+          Source
+          <select
+            value={source}
+            onChange={(event) => {
+              const value = event.target.value
+
+              if (value === 'Job Application' || value === 'Freelance') {
+                setSource(value)
+              }
+            }}
+          >
+            <option value="" disabled>Select source</option>
+            <option value="Job Application">Job Application</option>
+            <option value="Freelance">Freelance</option>
+          </select>
+        </label>
+
+        <div className="form-actions">
+          <button type='submit'> {editingFollowUpId !== null ? 'Save Changes' : 'Add'} </button>
+          {editingFollowUpId !== null && (
+            <button type="button" onClick={handleFollowUpCancelEdit}>
+              Cancel
+            </button>
+          )}
+        </div>
+
+      </form >
+    </>
+  )
+}
+
+export default FollowUpSection

@@ -125,8 +125,6 @@ function FreelanceSection() {
   return (
     <>
 
-      <h1>Pitchboard</h1>
-
       <div className="follow-up-filters">
         <button
           type="button"
