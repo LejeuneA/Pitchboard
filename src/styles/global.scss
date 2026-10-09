@@ -249,6 +249,8 @@ button {
 
 form button {
   min-height: 44px;
+  height: 44px;
+  align-self: end;
   margin: 0;
   border-radius: var(--radius-sm);
   background: var(--color-primary);
