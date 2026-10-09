@@ -144,7 +144,7 @@ function App() {
 
   }
 
-  function handleFreelanceRecordEdit() {
+  function handleFreelanceCancelEdit() {
     setEditingFreelanceRecordId(null)
     setDate('')
     setName('')
@@ -308,14 +308,14 @@ function App() {
 
               <button
                 type="button"
-                onClick={() => setFreelanceRecordFilter('Pending')}
+                onClick={() => setFreelanceRecordFilter('Application')}
               >
                 Pending
               </button>
 
               <button
                 type="button"
-                onClick={() => setFreelanceRecordFilter('Done')}
+                onClick={() => setFreelanceRecordFilter('Partner Lead')}
               >
                 Done
               </button>
@@ -324,7 +324,7 @@ function App() {
             {
               records.map((record) =>
                 <div key={record.id}>
-                  <FreelanceRecordCard item={record} onDelete={handleFreelanceDelete} onDone={handleFreelanceDone} onEdit={handleFreelanceEdit} />
+                  <FreelanceRecordCard item={record} onDelete={handleFreelanceDelete} onEdit={handleFreelanceRecordEdit} />
                 </div>
               )
             }
@@ -352,7 +352,7 @@ function App() {
               </select>
               <button type='submit'> {editingFollowUpId !== null ? 'Save Changes' : 'Add'} </button>
               {editingFreelanceRecordId !== null && (
-                <button type="button" onClick={handleFreelanceRecordEdit}>
+                <button type="button" onClick={handleFreelanceCancelEdit}>
                   Cancel
                 </button>
               )}
