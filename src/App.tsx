@@ -25,6 +25,7 @@ function App() {
   const [relatedTo, setRelatedTo] = useState('')
   const [source, setSource] = useState<FollowUp['source'] | ''>('')
   const [followUpFilter, setFollowUpFilter] = useState<'All' | 'Pending' | 'Done'>('All')
+  const [editingFollowUpId, setEditingFollowUpId] = useState<number | null>(null)
 
 
 
@@ -97,17 +98,7 @@ function App() {
 
 
   function handleFollowUpEdit(id: number) {
-    const editedFollowUp = follows.map((follow): FollowUp => {
-      if (follow.id === id) {
-        return {
-          ...follow,
-        }
-      }
-
-      return follow
-    })
-
-    setEditingFollowUpId(editedFollowUp)
+    setEditingFollowUpId(id)
   }
 
   return (
