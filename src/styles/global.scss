@@ -270,6 +270,17 @@ form button {
     flex: 1 1 0;
     min-width: 0;
   }
+
+  &:has(button + button) {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-self: stretch;
+
+    button {
+      width: 100%;
+    }
+  }
 }
 
 
