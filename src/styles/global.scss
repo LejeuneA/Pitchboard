@@ -261,6 +261,17 @@ form button {
   }
 }
 
+.form-actions {
+  display: flex;
+  gap: 0.5rem;
+  align-self: end;
+
+  button {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+}
+
 
 .follow-up-filters {
   grid-column: 1 / -1;
