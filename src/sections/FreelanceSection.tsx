@@ -125,114 +125,146 @@ function FreelanceSection() {
   return (
     <>
 
-      activeSection === 'Freelance' && (
-      <>
-        <div className="follow-up-filters">
-          <button
-            type="button"
-            onClick={() => setFreelanceRecordFilter('All')}
-          >
-            All
-          </button>
+      <h1>Pitchboard</h1>
 
-          <button
-            type="button"
-            onClick={() => setFreelanceRecordFilter('Application')}
-          >
-            Application
-          </button>
+      <div className="section-nav">
+        <button className={activeSection === 'FollowUps' ? "nav-followups is-active" : 'nav-followups'}
+          type="button"
+          onClick={() => setActiveSection('FollowUps')}
+        >
+          Follow Up
+        </button>
 
-          <button
-            type="button"
-            onClick={() => setFreelanceRecordFilter('Partner Lead')}
-          >
-            Partner Lead
-          </button>
-        </div>
+        <button className={activeSection === 'Freelance' ? "nav-freelance is-active" : 'nav-freelance'}
+          type="button"
+          onClick={() => setActiveSection('Freelance')}
+        >
+          Freelance
+        </button>
 
-        {
-          visibleFreelanceRecords.map((record) =>
-            <div key={record.id}>
-              <FreelanceRecordCard item={record} onDelete={handleFreelanceDelete} onEdit={handleFreelanceRecordEdit} />
-            </div>
-          )
-        }
+        <button className={activeSection === 'Jobs' ? "nav-jobs is-active" : 'nav-jobs'}
+          type="button"
+          onClick={() => setActiveSection('Jobs')}
+        >
+          Job Applications
+        </button>
 
-        <form onSubmit={handleFreelanceRecordsSubmit}>
-          <label>
-            Date
-            <input type="text" value={date} onChange={(event) => setDate(event.target.value)} />
-          </label>
+        <button className={activeSection === 'CareerEvidence' ? "nav-career is-active" : 'nav-career'}
+          type="button"
+          onClick={() => setActiveSection('CareerEvidence')}
+        >
+          Career Evidence
+        </button>
+      </div>
 
-          <label>
-            Name
-            <input type="text" value={name} onChange={(event) => setName(event.target.value)} />
-          </label>
-
-          <label>
-            Location
-            <input type="text" value={location} onChange={(event) => setLocation(event.target.value)} />
-          </label>
-
-          <label>
-            Website
-            <input type="text" value={url} onChange={(event) => setUrl(event.target.value)} />
-          </label>
-
-          <label>
-            Status
-            <input type="text" value={status} onChange={(event) => setStatus(event.target.value)} />
-          </label>
-
-          <label>
-            Entity Type
-            <select
-              value={entityType}
-              onChange={(event) => {
-                const value = event.target.value
-
-                if (value === 'Company' || value === 'Person') {
-                  setEntityType(value)
-                }
-              }}
+      {activeSection === 'Freelance' && (
+        <>
+          <div className="follow-up-filters">
+            <button
+              type="button"
+              onClick={() => setFreelanceRecordFilter('All')}
             >
-              <option value="" disabled>Select type</option>
-              <option value="Company">Company</option>
-              <option value="Person">Person</option>
-            </select>
-          </label>
+              All
+            </button>
 
-          <label>
-            Category
-            <select
-              value={recordCategory}
-              onChange={(event) => {
-                const value = event.target.value
-
-                if (value === 'Application' || value === 'Partner Lead') {
-                  setRecordCategory(value)
-                }
-              }}
+            <button
+              type="button"
+              onClick={() => setFreelanceRecordFilter('Application')}
             >
-              <option value="" disabled>Select category</option>
-              <option value="Application">Application</option>
-              <option value="Partner Lead">Partner Lead</option>
-            </select>
-          </label>
+              Application
+            </button>
 
-          <div className="form-actions">
-            <button type='submit'> {editingFreelanceRecordId !== null ? 'Save Changes' : 'Add'} </button>
-            {editingFreelanceRecordId !== null && (
-              <button type="button" onClick={handleFreelanceCancelEdit}>
-                Cancel
-              </button>
-            )}
+            <button
+              type="button"
+              onClick={() => setFreelanceRecordFilter('Partner Lead')}
+            >
+              Partner Lead
+            </button>
           </div>
 
-        </form >
-      </>
-      )
+          {
+            visibleFreelanceRecords.map((record) =>
+              <div key={record.id}>
+                <FreelanceRecordCard item={record} onDelete={handleFreelanceDelete} onEdit={handleFreelanceRecordEdit} />
+              </div>
+            )
+          }
 
+          <form onSubmit={handleFreelanceRecordsSubmit}>
+            <label>
+              Date
+              <input type="text" value={date} onChange={(event) => setDate(event.target.value)} />
+            </label>
+
+            <label>
+              Name
+              <input type="text" value={name} onChange={(event) => setName(event.target.value)} />
+            </label>
+
+            <label>
+              Location
+              <input type="text" value={location} onChange={(event) => setLocation(event.target.value)} />
+            </label>
+
+            <label>
+              Website
+              <input type="text" value={url} onChange={(event) => setUrl(event.target.value)} />
+            </label>
+
+            <label>
+              Status
+              <input type="text" value={status} onChange={(event) => setStatus(event.target.value)} />
+            </label>
+
+            <label>
+              Entity Type
+              <select
+                value={entityType}
+                onChange={(event) => {
+                  const value = event.target.value
+
+                  if (value === 'Company' || value === 'Person') {
+                    setEntityType(value)
+                  }
+                }}
+              >
+                <option value="" disabled>Select type</option>
+                <option value="Company">Company</option>
+                <option value="Person">Person</option>
+              </select>
+            </label>
+
+            <label>
+              Category
+              <select
+                value={recordCategory}
+                onChange={(event) => {
+                  const value = event.target.value
+
+                  if (value === 'Application' || value === 'Partner Lead') {
+                    setRecordCategory(value)
+                  }
+                }}
+              >
+                <option value="" disabled>Select category</option>
+                <option value="Application">Application</option>
+                <option value="Partner Lead">Partner Lead</option>
+              </select>
+            </label>
+
+            <div className="form-actions">
+              <button type='submit'> {editingFreelanceRecordId !== null ? 'Save Changes' : 'Add'} </button>
+              {editingFreelanceRecordId !== null && (
+                <button type="button" onClick={handleFreelanceCancelEdit}>
+                  Cancel
+                </button>
+              )}
+            </div>
+
+          </form >
+        </>
+      )
+      }
     </>
   )
 }
