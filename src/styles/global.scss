@@ -211,19 +211,28 @@ form button {
   background: #f3f8f5;
 }
 
+#root > div:not(.follow-up-filters) > div:has(> p:nth-of-type(7)):not(.follow-up-card) {
+  p:last-of-type {
+    margin-bottom: auto;
+  }
+
+  button:first-of-type {
+    margin-top: 1rem;
+  }
+}
+
 .follow-up-card {
-  display: grid;
-  grid-template-rows: repeat(5, auto) minmax(1rem, 1fr) auto auto auto;
+  display: flex;
+  flex-direction: column;
   height: 100%;
 
   p:last-of-type {
-    margin-bottom: 0;
+    margin-bottom: auto;
     font-weight: 700;
   }
 
   button:first-of-type {
-    grid-row: 7;
-    margin-top: 0;
+    margin-top: 1rem;
     background: #4f5f8f;
 
     &:hover {
@@ -232,12 +241,7 @@ form button {
     }
   }
 
-  button:nth-of-type(2) {
-    grid-row: 8;
-  }
-
   button:nth-of-type(3) {
-    grid-row: 9;
     background: #a9473a;
 
     &:hover {
