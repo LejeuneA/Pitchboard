@@ -181,6 +181,8 @@ function App() {
         </button>
       </div>
 
+      {activeSection === 'Freelance' && <FreelanceSection />}
+
       {
         activeSection === 'CareerEvidence' && (
           evidences.map((evidence) =>
