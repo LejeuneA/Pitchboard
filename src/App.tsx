@@ -73,6 +73,26 @@ function App() {
     setTitle('')
     setRelatedTo('')
     setSource('')
+
+    if (editingFollowUpId !== null) {
+      const updatedFollowUps = follows.map((follow): FollowUp => {
+        if (follow.id === editingFollowUpId) {
+          return {
+            ...follow,
+            dueDate,
+            title,
+            relatedTo,
+            source
+          }
+        }
+
+        return follow
+      })
+
+      setFollows(updatedFollowUps)
+      setEditingFollowUpId(null)
+      return
+    }
   }
 
   function handleFollowUpDone(id: number) {
