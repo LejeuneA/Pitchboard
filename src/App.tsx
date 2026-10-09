@@ -391,12 +391,14 @@ function App() {
                 </select>
               </label>
 
-              <button type='submit'> {editingFreelanceRecordId !== null ? 'Save Changes' : 'Add'} </button>
-              {editingFreelanceRecordId !== null && (
-                <button type="button" onClick={handleFreelanceCancelEdit}>
-                  Cancel
-                </button>
-              )}
+              <div className="form-actions">
+                <button type='submit'> {editingFreelanceRecordId !== null ? 'Save Changes' : 'Add'} </button>
+                {editingFreelanceRecordId !== null && (
+                  <button type="button" onClick={handleFreelanceCancelEdit}>
+                    Cancel
+                  </button>
+                )}
+              </div>
 
             </form >
           </>
@@ -489,12 +491,14 @@ function App() {
                 </select>
               </label>
 
-              <button type='submit'> {editingFollowUpId !== null ? 'Save Changes' : 'Add'} </button>
-              {editingFollowUpId !== null && (
-                <button type="button" onClick={handleFollowUpCancelEdit}>
-                  Cancel
-                </button>
-              )}
+              <div className="form-actions">
+                <button type='submit'> {editingFollowUpId !== null ? 'Save Changes' : 'Add'} </button>
+                {editingFollowUpId !== null && (
+                  <button type="button" onClick={handleFollowUpCancelEdit}>
+                    Cancel
+                  </button>
+                )}
+              </div>
 
             </form >
           </>
