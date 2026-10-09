@@ -1,7 +1,7 @@
 import type { FollowUpCardProps } from '../types/FollowUp'
 
 
-function FollowUpCard({ item, onDelete, onDone }: FollowUpCardProps) {
+function FollowUpCard({ item, onDelete, onDone, onEdit }: FollowUpCardProps) {
   return (
     <div className={item.status === 'Pending' ? 'follow-up-card is-pending' : 'follow-up-card is-done'}>
       <p>Due Date: {item.dueDate}</p>
@@ -11,6 +11,7 @@ function FollowUpCard({ item, onDelete, onDone }: FollowUpCardProps) {
       <p>Status: {item.status}</p>
       <button type='button' onClick={() => onDelete(item.id)}> Delete</button>
       <button type='button' onClick={() => onDone(item.id)}> {item.status === 'Pending' ? 'Mark Done' : 'Reopen'} </button>
+      <button type='button' onClick={() => onEdit(item.id)}> Edit </button>
     </div >
   )
 }

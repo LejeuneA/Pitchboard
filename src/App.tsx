@@ -148,7 +148,7 @@ function App() {
 
       {visibleFollowUps.map((follow) =>
         <div key={follow.id}>
-          <FollowUpCard item={follow} onDelete={handleFollowUpDelete} onDone={handleFollowUpDone} />
+          <FollowUpCard item={follow} onDelete={handleFollowUpDelete} onDone={handleFollowUpDone} onEdit={handleFollowUpEdit} />
         </div>
       )}
 
