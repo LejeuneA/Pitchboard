@@ -216,6 +216,15 @@ form button {
   }
 
   button:first-of-type {
+    background: #4f5f8f;
+
+    &:hover {
+      background: #424f79;
+      opacity: 1;
+    }
+  }
+
+  button:nth-of-type(3) {
     background: #a9473a;
 
     &:hover {
