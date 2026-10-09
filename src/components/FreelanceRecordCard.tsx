@@ -1,6 +1,6 @@
 import type { FreelanceRecordCardProps } from '../types/FreelanceRecord'
 
-function FreelanceRecordCard({ item, onDelete }: FreelanceRecordCardProps) {
+function FreelanceRecordCard({ item, onDelete, onEdit }: FreelanceRecordCardProps) {
   return (
     <div className="freelance-card">
       <div className="card-information">
@@ -14,7 +14,6 @@ function FreelanceRecordCard({ item, onDelete }: FreelanceRecordCardProps) {
       </div>
       <div className="card-actions">
         <button type='button' onClick={() => onEdit(item.id)}> Edit </button>
-        <button type='button' onClick={() => onDone(item.id)}> {item.status === 'Pending' ? 'Mark Done' : 'Reopen'} </button>
         <button type='button' onClick={() => onDelete(item.id)}> Delete</button>
       </div>
     </div >

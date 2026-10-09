@@ -9,10 +9,7 @@ export type JobApplication = {
   status: string
 }
 
-
 export type JobApplicationCardProps = {
   item: JobApplication
   onDelete: (id: number) => void
-  onDone: (id: number) => void
-  onEdit: (id: number) => void
 }

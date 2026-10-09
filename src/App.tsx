@@ -8,6 +8,7 @@ import JobApplicationCard from './components/JobApplicationCard'
 import { followUpRecords } from './data/followUpRecords'
 import FollowUpCard from './components/FollowUpCard'
 import type { FollowUp } from './types/FollowUp'
+import type { FreelanceRecord } from './types/FreelanceRecord'
 import type { SubmitEvent } from 'react'
 
 
@@ -21,8 +22,8 @@ function App() {
   const [name, setName] = useState('')
   const [location, setLocation] = useState('')
   const [url, setUrl] = useState('')
-  const [entityType, setEntityType] = useState<'Company' | 'Person'>('')
-  const [recordCategory, setRecordCategory] = useState<'Application' | 'Partner Lead'>('')
+  const [entityType, setEntityType] = useState<FreelanceRecord['entityType'] | ''>('')
+  const [recordCategory, setRecordCategory] = useState<FreelanceRecord['recordCategory'] | ''>('')
   const [status, setStatus] = useState('')
   const [evidences, setEvidences] = useState(careerEvidenceRecords)
   const [applications, setApplications] = useState(jobApplicationRecords)
@@ -33,7 +34,7 @@ function App() {
   const [source, setSource] = useState<FollowUp['source'] | ''>('')
   const [followUpFilter, setFollowUpFilter] = useState<'All' | 'Pending' | 'Done'>('All')
   const [editingFollowUpId, setEditingFollowUpId] = useState<number | null>(null)
-  const [freelanceRecordFilter, setFreelanceRecordFilter] = useState<'All' | 'Pending' | 'Done'>('All')
+  const [freelanceRecordFilter, setFreelanceRecordFilter] = useState<'All' | 'Application' | 'Partner Lead'>('All')
   const [editingFreelanceRecordId, setEditingFreelanceRecordId] = useState<number | null>(null)
   const [activeSection, setActiveSection] = useState<'Freelance' | 'Jobs' | 'FollowUps' | 'CareerEvidence'>('FollowUps')
 
@@ -119,26 +120,11 @@ function App() {
 
   }
 
-  function handleFreelanceDone(id: number) {
-    const newFreelanceRecords = records.map((record): FreelanceRecord => {
-      if (record.id === id) {
-        return {
-          ...record,
-          status: record.status === 'Pending' ? 'Done' : 'Pending'
-        }
-      }
-
-      return record
-    })
-
-    setFollows(newFreelanceRecords)
-  }
-
   const visibleFreelanceRecords =
     freelanceRecordFilter === 'All'
       ? records
-      : freelanceRecordFilter === 'Pending' ? records.filter((record) => record.status === 'Pending')
-        : follows.filter((record) => record.status === 'Done')
+      : freelanceRecordFilter === 'Application' ? records.filter((record) => record.recordCategory === 'Application')
+        : records.filter((record) => record.recordCategory === 'Partner Lead')
 
   function handleFreelanceRecordEdit(id: number) {
     const selectedFreelanceRecord = records.find((record) => record.id === id)
