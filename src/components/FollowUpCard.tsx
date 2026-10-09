@@ -9,9 +9,9 @@ function FollowUpCard({ item, onDelete, onDone, onEdit }: FollowUpCardProps) {
       <p>Related to: {item.relatedTo}</p>
       <p>Source: {item.source}</p>
       <p>Status: {item.status}</p>
-      <button type='button' onClick={() => onDelete(item.id)}> Delete</button>
-      <button type='button' onClick={() => onDone(item.id)}> {item.status === 'Pending' ? 'Mark Done' : 'Reopen'} </button>
       <button type='button' onClick={() => onEdit(item.id)}> Edit </button>
+      <button type='button' onClick={() => onDone(item.id)}> {item.status === 'Pending' ? 'Mark Done' : 'Reopen'} </button>
+      <button type='button' onClick={() => onDelete(item.id)}> Delete</button>
     </div >
   )
 }

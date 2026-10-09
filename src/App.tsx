@@ -96,9 +96,18 @@ function App() {
       : followUpFilter === 'Pending' ? follows.filter((follow) => follow.status === 'Pending')
         : follows.filter((follow) => follow.status === 'Done')
 
-
   function handleFollowUpEdit(id: number) {
+    const selectedFollowUp = follows.find((follow) => follow.id === id)
+
+    if (!selectedFollowUp) {
+      return
+    }
+
     setEditingFollowUpId(id)
+    setDueDate(selectedFollowUp.dueDate)
+    setTitle(selectedFollowUp.title)
+    setRelatedTo(selectedFollowUp.relatedTo)
+    setSource(selectedFollowUp.source)
   }
 
   return (
