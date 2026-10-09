@@ -82,6 +82,10 @@ h1 {
   button + button {
     margin-top: 0.5rem;
   }
+
+  > .follow-up-card > button:first-of-type {
+    margin-top: auto;
+  }
 }
 
 form {
@@ -216,7 +220,6 @@ form button {
   }
 
   button:first-of-type {
-    margin-top: auto;
     background: #4f5f8f;
 
     &:hover {
