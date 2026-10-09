@@ -57,15 +57,6 @@ function App() {
       return
     }
 
-    const newFollowUp: FollowUp = {
-      id: Date.now(),
-      dueDate,
-      title,
-      relatedTo,
-      source,
-      status: 'Pending'
-    }
-
     if (editingFollowUpId !== null) {
       const updatedFollowUps = follows.map((follow): FollowUp => {
         if (follow.id === editingFollowUpId) {
@@ -88,6 +79,15 @@ function App() {
       setRelatedTo('')
       setSource('')
       return
+    }
+
+    const newFollowUp: FollowUp = {
+      id: Date.now(),
+      dueDate,
+      title,
+      relatedTo,
+      source,
+      status: 'Pending'
     }
 
     const newFollowUps = [...follows, newFollowUp]
