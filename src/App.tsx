@@ -61,7 +61,7 @@ function App() {
   function handleFreelanceRecordsSubmit(event: SubmitEvent<HTMLFormElement>) {
     event.preventDefault()
 
-    if (date === '' || name === '' || location === '' || url === '' || entityType === '' || recordCategory === '' || status === '') {
+    if (date === '' || name === '' || entityType === '' || recordCategory === '' || status === '') {
       return
     }
 
@@ -136,8 +136,8 @@ function App() {
     setEditingFreelanceRecordId(id)
     setDate(selectedFreelanceRecord.date)
     setName(selectedFreelanceRecord.name)
-    setLocation(selectedFreelanceRecord.location)
-    setUrl(selectedFreelanceRecord.url)
+    setLocation(selectedFreelanceRecord.location ?? '')
+    setUrl(selectedFreelanceRecord.url ?? '')
     setEntityType(selectedFreelanceRecord.entityType)
     setRecordCategory(selectedFreelanceRecord.recordCategory)
     setStatus(selectedFreelanceRecord.status)
@@ -365,7 +365,7 @@ function App() {
                 <option value="Partner Lead">Partner Lead</option>
               </select>
 
-              <button type='submit'> {editingFollowUpId !== null ? 'Save Changes' : 'Add'} </button>
+              <button type='submit'> {editingFreelanceRecordId !== null ? 'Save Changes' : 'Add'} </button>
               {editingFreelanceRecordId !== null && (
                 <button type="button" onClick={handleFreelanceCancelEdit}>
                   Cancel
