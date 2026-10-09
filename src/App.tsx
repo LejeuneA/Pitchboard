@@ -83,6 +83,10 @@ function App() {
 
       setFollows(updatedFollowUps)
       setEditingFollowUpId(null)
+      setDueDate('')
+      setTitle('')
+      setRelatedTo('')
+      setSource('')
       return
     }
 
