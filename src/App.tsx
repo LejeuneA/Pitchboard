@@ -97,18 +97,18 @@ function App() {
 
     const newFreelanceRecord: FreelanceRecord = {
       id: Date.now(),
+      date,
       name,
       location,
       url,
       entityType,
       recordCategory,
-      status: 'Pending'
+      status
     }
 
     const newFreelanceRecords = [...records, newFreelanceRecord]
-    setFollows(newFreelanceRecords)
+    setRecords(newFreelanceRecords)
 
-    setDate('')
     setDate('')
     setName('')
     setLocation('')
@@ -334,10 +334,9 @@ function App() {
               <input type="text" value={name} onChange={(event) => setName(event.target.value)} />
               <input type="text" value={location} onChange={(event) => setLocation(event.target.value)} />
               <input type="text" value={url} onChange={(event) => setUrl(event.target.value)} />
-              <input type="text" value={recordCategory} onChange={(event) => setRecordCategory(event.target.value)} />
               <input type="text" value={status} onChange={(event) => setStatus(event.target.value)} />
               <select
-                value={source}
+                value={entityType}
                 onChange={(event) => {
                   const value = event.target.value
 
@@ -350,6 +349,22 @@ function App() {
                 <option value="Company">Company</option>
                 <option value="Person">Person</option>
               </select>
+
+              <select
+                value={recordCategory}
+                onChange={(event) => {
+                  const value = event.target.value
+
+                  if (value === 'Application' || value === 'Partner Lead') {
+                    setRecordCategory(value)
+                  }
+                }}
+              >
+                <option value="" disabled>Select type</option>
+                <option value="Application">Application</option>
+                <option value="Partner Lead">Partner Lead</option>
+              </select>
+
               <button type='submit'> {editingFollowUpId !== null ? 'Save Changes' : 'Add'} </button>
               {editingFreelanceRecordId !== null && (
                 <button type="button" onClick={handleFreelanceCancelEdit}>
