@@ -211,64 +211,67 @@ function App() {
 
       {
         activeSection === 'FollowUps' && (
-          <div className="follow-up-filters">
-            <button
-              type="button"
-              onClick={() => setFollowUpFilter('All')}
-            >
-              All
-            </button>
+          <>
+            <div className="follow-up-filters">
+              <button
+                type="button"
+                onClick={() => setFollowUpFilter('All')}
+              >
+                All
+              </button>
 
-            <button
-              type="button"
-              onClick={() => setFollowUpFilter('Pending')}
-            >
-              Pending
-            </button>
+              <button
+                type="button"
+                onClick={() => setFollowUpFilter('Pending')}
+              >
+                Pending
+              </button>
 
-            <button
-              type="button"
-              onClick={() => setFollowUpFilter('Done')}
-            >
-              Done
-            </button>
-          </div>
+              <button
+                type="button"
+                onClick={() => setFollowUpFilter('Done')}
+              >
+                Done
+              </button>
+            </div>
 
-      {
-        visibleFollowUps.map((follow) =>
-          <div key={follow.id}>
-            <FollowUpCard item={follow} onDelete={handleFollowUpDelete} onDone={handleFollowUpDone} onEdit={handleFollowUpEdit} />
-          </div>
+            {
+              visibleFollowUps.map((follow) =>
+                <div key={follow.id}>
+                  <FollowUpCard item={follow} onDelete={handleFollowUpDelete} onDone={handleFollowUpDone} onEdit={handleFollowUpEdit} />
+                </div>
+              )
+            }
+
+            <form onSubmit={handleFollowUpSubmit}>
+              <input type="text" value={dueDate} onChange={(event) => setDueDate(event.target.value)} />
+              <input type="text" value={title} onChange={(event) => setTitle(event.target.value)} />
+              <input type="text" value={relatedTo} onChange={(event) => setRelatedTo(event.target.value)} />
+              <select
+                value={source}
+                onChange={(event) => {
+                  const value = event.target.value
+
+                  if (value === 'Job Application' || value === 'Freelance') {
+                    setSource(value)
+                  }
+                }}
+              >
+                <option value="" disabled>Select source</option>
+                <option value="Job Application">Job Application</option>
+                <option value="Freelance">Freelance</option>
+              </select>
+              <button type='submit'> {editingFollowUpId !== null ? 'Save Changes' : 'Add'} </button>
+              {editingFollowUpId !== null && (
+                <button type="button" onClick={handleFollowUpCancelEdit}>
+                  Cancel
+                </button>
+              )}
+
+            </form >
+          </>
         )
       }
-
-      <form onSubmit={handleFollowUpSubmit}>
-        <input type="text" value={dueDate} onChange={(event) => setDueDate(event.target.value)} />
-        <input type="text" value={title} onChange={(event) => setTitle(event.target.value)} />
-        <input type="text" value={relatedTo} onChange={(event) => setRelatedTo(event.target.value)} />
-        <select
-          value={source}
-          onChange={(event) => {
-            const value = event.target.value
-
-            if (value === 'Job Application' || value === 'Freelance') {
-              setSource(value)
-            }
-          }}
-        >
-          <option value="" disabled>Select source</option>
-          <option value="Job Application">Job Application</option>
-          <option value="Freelance">Freelance</option>
-        </select>
-        <button type='submit'> {editingFollowUpId !== null ? 'Save Changes' : 'Add'} </button>
-        {editingFollowUpId !== null && (
-          <button type="button" onClick={handleFollowUpCancelEdit}>
-            Cancel
-          </button>
-        )}
-
-      </form >
-
     </>
   )
 }
