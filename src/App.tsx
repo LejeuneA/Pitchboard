@@ -136,6 +136,17 @@ function App() {
     setSource(selectedFollowUp.source)
   }
 
+  function handleFollowUpCancelEdit() {
+    setEditingFollowUpId(null)
+    setDueDate('')
+    setTitle('')
+    setRelatedTo('')
+    setSource('')
+
+  }
+
+
+
   return (
     <>
       <h1>Pitchboard</h1>
@@ -206,6 +217,12 @@ function App() {
           <option value="Freelance">Freelance</option>
         </select>
         <button type='submit'> {editingFollowUpId !== null ? 'Save Changes' : 'Add'} </button>
+        {editingFollowUpId !== null && (
+          <button type="button" onClick={handleFollowUpCancelEdit}>
+            Cancel
+          </button>
+        )}
+
       </form >
 
     </>
