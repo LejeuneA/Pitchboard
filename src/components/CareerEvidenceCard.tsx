@@ -3,7 +3,7 @@ import type { CareerEvidenceCardProps } from '../types/CareerEvidence'
 
 function CareerEvidenceCard({ item, onDelete }: CareerEvidenceCardProps) {
   return (
-    <div>
+    <div className="career-card">
       <p>Title: {item.title}</p>
       <p>Context: {item.context}</p>
       <p>Result: {item.result}</p>
