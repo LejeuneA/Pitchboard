@@ -2,7 +2,7 @@ import type { FreelanceRecordCardProps } from '../types/FreelanceRecord'
 
 function FreelanceRecordCard({ item, onDelete }: FreelanceRecordCardProps) {
   return (
-    <div>
+    <div className="freelance-card">
       <div className="card-information">
         <p>Date: {item.date}</p>
         <p>Name: {item.name}</p>
