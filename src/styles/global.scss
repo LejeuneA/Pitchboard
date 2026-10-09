@@ -216,6 +216,7 @@ form button {
   }
 
   button:first-of-type {
+    margin-top: auto;
     background: #4f5f8f;
 
     &:hover {
