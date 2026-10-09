@@ -174,9 +174,9 @@ form {
   grid-column: 1 / -1;
 
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr)) auto;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0.75rem;
-  align-items: end;
+  align-items: stretch;
 
   margin-top: 1rem;
   padding: 1.25rem;
@@ -200,6 +200,11 @@ input,
 select {
   min-height: 44px;
   padding: 0 12px;
+  background: #fcfcfa;
+
+  &:hover {
+    border-color: #b9b9b2;
+  }
 }
 
 textarea {
@@ -235,6 +240,7 @@ button {
 form button {
   min-height: 44px;
   margin: 0;
+  border-radius: var(--radius-sm);
   background: var(--color-primary);
 
   &:hover {
