@@ -26,6 +26,7 @@ function App() {
   const [source, setSource] = useState<FollowUp['source'] | ''>('')
   const [followUpFilter, setFollowUpFilter] = useState<'All' | 'Pending' | 'Done'>('All')
   const [editingFollowUpId, setEditingFollowUpId] = useState<number | null>(null)
+  const [activeSection, setActiveSection] = useState<'Freelance' | 'Jobs' | 'FollowUps' | 'CareerEvidence'>('FollowUps')
 
 
 
@@ -151,23 +152,59 @@ function App() {
     <>
       <h1>Pitchboard</h1>
 
-      {records.map((record) =>
-        <div key={record.id}>
-          <FreelanceRecordCard item={record} onDelete={handleFreelanceDelete} />
-        </div>
-      )}
+      <div className="section-nav">
+        <button className={activeSection === 'FollowUps' ? "nav-followups is-active" : 'nav-followups'}
+          type="button"
+          onClick={() => setActiveSection('FollowUps')}
+        >
+          Follow Up
+        </button>
 
-      {evidences.map((evidence) =>
-        <div key={evidence.id}>
-          <CareerEvidenceCard item={evidence} onDelete={handleCareerDelete} />
-        </div>
-      )}
+        <button className={activeSection === 'Freelance' ? "nav-freelance is-active" : 'nav-freelance'}
+          type="button"
+          onClick={() => setActiveSection('Freelance')}
+        >
+          Freelance
+        </button>
 
-      {applications.map((application) =>
-        <div key={application.id}>
-          <JobApplicationCard item={application} onDelete={handleJobDelete} />
-        </div>
-      )}
+        <button className={activeSection === 'Jobs' ? "nav-jobs is-active" : 'nav-jobs'}
+          type="button"
+          onClick={() => setActiveSection('Jobs')}
+        >
+          Job Applications
+        </button>
+
+        <button className={activeSection === 'CareerEvidence' ? "nav-career is-active" : 'nav-career'}
+          type="button"
+          onClick={() => setActiveSection('CareerEvidence')}
+        >
+          Career Evidence
+        </button>
+      </div>
+
+      {
+        records.map((record) =>
+          <div key={record.id}>
+            <FreelanceRecordCard item={record} onDelete={handleFreelanceDelete} />
+          </div>
+        )
+      }
+
+      {
+        evidences.map((evidence) =>
+          <div key={evidence.id}>
+            <CareerEvidenceCard item={evidence} onDelete={handleCareerDelete} />
+          </div>
+        )
+      }
+
+      {
+        applications.map((application) =>
+          <div key={application.id}>
+            <JobApplicationCard item={application} onDelete={handleJobDelete} />
+          </div>
+        )
+      }
 
       <div className="follow-up-filters">
         <button
@@ -192,11 +229,13 @@ function App() {
         </button>
       </div>
 
-      {visibleFollowUps.map((follow) =>
-        <div key={follow.id}>
-          <FollowUpCard item={follow} onDelete={handleFollowUpDelete} onDone={handleFollowUpDone} onEdit={handleFollowUpEdit} />
-        </div>
-      )}
+      {
+        visibleFollowUps.map((follow) =>
+          <div key={follow.id}>
+            <FollowUpCard item={follow} onDelete={handleFollowUpDelete} onDone={handleFollowUpDone} onEdit={handleFollowUpEdit} />
+          </div>
+        )
+      }
 
       <form onSubmit={handleFollowUpSubmit}>
         <input type="text" value={dueDate} onChange={(event) => setDueDate(event.target.value)} />
