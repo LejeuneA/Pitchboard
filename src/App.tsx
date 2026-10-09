@@ -1,6 +1,5 @@
 import { useState } from 'react'
-import { freelanceRecords } from './data/freelanceRecords'
-import FreelanceRecordCard from './components/FreelanceRecordCard'
+import FreelanceSection from './sections/FreelanceSection'
 import { careerEvidenceRecords } from './data/careerEvidenceRecords'
 import CareerEvidenceCard from './components/CareerEvidenceCard'
 import { jobApplicationRecords } from './data/jobApplicationRecords'
@@ -8,7 +7,7 @@ import JobApplicationCard from './components/JobApplicationCard'
 import { followUpRecords } from './data/followUpRecords'
 import FollowUpCard from './components/FollowUpCard'
 import type { FollowUp } from './types/FollowUp'
-import type { FreelanceRecord } from './types/FreelanceRecord'
+
 import type { SubmitEvent } from 'react'
 
 
@@ -17,14 +16,7 @@ import type { SubmitEvent } from 'react'
 
 function App() {
 
-  const [records, setRecords] = useState(freelanceRecords)
-  const [date, setDate] = useState('')
-  const [name, setName] = useState('')
-  const [location, setLocation] = useState('')
-  const [url, setUrl] = useState('')
-  const [entityType, setEntityType] = useState<FreelanceRecord['entityType'] | ''>('')
-  const [recordCategory, setRecordCategory] = useState<FreelanceRecord['recordCategory'] | ''>('')
-  const [status, setStatus] = useState('')
+
   const [evidences, setEvidences] = useState(careerEvidenceRecords)
   const [applications, setApplications] = useState(jobApplicationRecords)
   const [follows, setFollows] = useState(followUpRecords)
@@ -34,8 +26,7 @@ function App() {
   const [source, setSource] = useState<FollowUp['source'] | ''>('')
   const [followUpFilter, setFollowUpFilter] = useState<'All' | 'Pending' | 'Done'>('All')
   const [editingFollowUpId, setEditingFollowUpId] = useState<number | null>(null)
-  const [freelanceRecordFilter, setFreelanceRecordFilter] = useState<'All' | 'Application' | 'Partner Lead'>('All')
-  const [editingFreelanceRecordId, setEditingFreelanceRecordId] = useState<number | null>(null)
+
   const [activeSection, setActiveSection] = useState<'Freelance' | 'Jobs' | 'FollowUps' | 'CareerEvidence'>('FollowUps')
 
 
@@ -51,111 +42,6 @@ function App() {
     const newApplications = applications.filter((application) => application.id !== id)
     setApplications(newApplications)
   }
-
-  // Freelance
-  function handleFreelanceDelete(id: number) {
-    const newRecords = records.filter((record) => record.id !== id)
-    setRecords(newRecords)
-  }
-
-  function handleFreelanceRecordsSubmit(event: SubmitEvent<HTMLFormElement>) {
-    event.preventDefault()
-
-    if (date === '' || name === '' || entityType === '' || recordCategory === '' || status === '') {
-      return
-    }
-
-    if (editingFreelanceRecordId !== null) {
-      const updatedFreelanceRecords = records.map((record): FreelanceRecord => {
-        if (record.id === editingFreelanceRecordId) {
-          return {
-            ...record,
-            date,
-            name,
-            location,
-            url,
-            entityType,
-            recordCategory,
-            status
-          }
-        }
-
-        return record
-      })
-
-      setRecords(updatedFreelanceRecords)
-      setEditingFreelanceRecordId(null)
-      setDate('')
-      setName('')
-      setLocation('')
-      setUrl('')
-      setEntityType('')
-      setRecordCategory('')
-      setStatus('')
-      return
-    }
-
-    const newFreelanceRecord: FreelanceRecord = {
-      id: Date.now(),
-      date,
-      name,
-      location,
-      url,
-      entityType,
-      recordCategory,
-      status
-    }
-
-    const newFreelanceRecords = [...records, newFreelanceRecord]
-    setRecords(newFreelanceRecords)
-
-    setDate('')
-    setName('')
-    setLocation('')
-    setUrl('')
-    setEntityType('')
-    setRecordCategory('')
-    setStatus('')
-
-
-  }
-
-  const visibleFreelanceRecords =
-    freelanceRecordFilter === 'All'
-      ? records
-      : freelanceRecordFilter === 'Application' ? records.filter((record) => record.recordCategory === 'Application')
-        : records.filter((record) => record.recordCategory === 'Partner Lead')
-
-  function handleFreelanceRecordEdit(id: number) {
-    const selectedFreelanceRecord = records.find((record) => record.id === id)
-
-    if (!selectedFreelanceRecord) {
-      return
-    }
-
-    setEditingFreelanceRecordId(id)
-    setDate(selectedFreelanceRecord.date)
-    setName(selectedFreelanceRecord.name)
-    setLocation(selectedFreelanceRecord.location ?? '')
-    setUrl(selectedFreelanceRecord.url ?? '')
-    setEntityType(selectedFreelanceRecord.entityType)
-    setRecordCategory(selectedFreelanceRecord.recordCategory)
-    setStatus(selectedFreelanceRecord.status)
-
-  }
-
-  function handleFreelanceCancelEdit() {
-    setEditingFreelanceRecordId(null)
-    setDate('')
-    setName('')
-    setLocation('')
-    setUrl('')
-    setEntityType('')
-    setRecordCategory('')
-    setStatus('')
-
-  }
-
 
 
   // Follow Up
@@ -294,116 +180,6 @@ function App() {
           Career Evidence
         </button>
       </div>
-
-      {
-        activeSection === 'Freelance' && (
-          <>
-            <div className="follow-up-filters">
-              <button
-                type="button"
-                onClick={() => setFreelanceRecordFilter('All')}
-              >
-                All
-              </button>
-
-              <button
-                type="button"
-                onClick={() => setFreelanceRecordFilter('Application')}
-              >
-                Application
-              </button>
-
-              <button
-                type="button"
-                onClick={() => setFreelanceRecordFilter('Partner Lead')}
-              >
-                Partner Lead
-              </button>
-            </div>
-
-            {
-              visibleFreelanceRecords.map((record) =>
-                <div key={record.id}>
-                  <FreelanceRecordCard item={record} onDelete={handleFreelanceDelete} onEdit={handleFreelanceRecordEdit} />
-                </div>
-              )
-            }
-
-            <form onSubmit={handleFreelanceRecordsSubmit}>
-              <label>
-                Date
-                <input type="text" value={date} onChange={(event) => setDate(event.target.value)} />
-              </label>
-
-              <label>
-                Name
-                <input type="text" value={name} onChange={(event) => setName(event.target.value)} />
-              </label>
-
-              <label>
-                Location
-                <input type="text" value={location} onChange={(event) => setLocation(event.target.value)} />
-              </label>
-
-              <label>
-                Website
-                <input type="text" value={url} onChange={(event) => setUrl(event.target.value)} />
-              </label>
-
-              <label>
-                Status
-                <input type="text" value={status} onChange={(event) => setStatus(event.target.value)} />
-              </label>
-
-              <label>
-                Entity Type
-                <select
-                  value={entityType}
-                  onChange={(event) => {
-                    const value = event.target.value
-
-                    if (value === 'Company' || value === 'Person') {
-                      setEntityType(value)
-                    }
-                  }}
-                >
-                  <option value="" disabled>Select type</option>
-                  <option value="Company">Company</option>
-                  <option value="Person">Person</option>
-                </select>
-              </label>
-
-              <label>
-                Category
-                <select
-                  value={recordCategory}
-                  onChange={(event) => {
-                    const value = event.target.value
-
-                    if (value === 'Application' || value === 'Partner Lead') {
-                      setRecordCategory(value)
-                    }
-                  }}
-                >
-                  <option value="" disabled>Select category</option>
-                  <option value="Application">Application</option>
-                  <option value="Partner Lead">Partner Lead</option>
-                </select>
-              </label>
-
-              <div className="form-actions">
-                <button type='submit'> {editingFreelanceRecordId !== null ? 'Save Changes' : 'Add'} </button>
-                {editingFreelanceRecordId !== null && (
-                  <button type="button" onClick={handleFreelanceCancelEdit}>
-                    Cancel
-                  </button>
-                )}
-              </div>
-
-            </form >
-          </>
-        )
-      }
 
       {
         activeSection === 'CareerEvidence' && (
