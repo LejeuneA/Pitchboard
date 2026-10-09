@@ -147,12 +147,25 @@ h1 {
 
 .card-actions {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 0.5rem;
   margin-top: 1rem;
 
   button {
+    flex: 1 1 0;
+    min-width: 0;
     margin: 0;
+    padding-inline: 0.65rem;
+    white-space: nowrap;
+  }
+
+  button:last-child {
+    background: #a9473a;
+
+    &:hover {
+      background: #913b31;
+      opacity: 1;
+    }
   }
 }
 
@@ -288,17 +301,50 @@ form button {
   background: #fbf8f2;
 }
 
-.freelance-card .card-information p:nth-child(2) {
-  color: #315b75;
+.freelance-card {
+  .card-information p:nth-child(2) {
+    color: #315b75;
+  }
+
+  .card-actions button:first-child:not(:last-child) {
+    background: #3f6f8f;
+
+    &:hover {
+      background: #345d78;
+      opacity: 1;
+    }
+  }
 }
 
-.job-card .card-information p:nth-child(2) {
-  color: #5b4778;
+.job-card {
+  .card-information p:nth-child(2) {
+    color: #5b4778;
+  }
+
+  .card-actions button:first-child:not(:last-child) {
+    background: #6d5a8e;
+
+    &:hover {
+      background: #5b4b77;
+      opacity: 1;
+    }
+  }
 }
 
-.career-card p:first-child {
-  color: #725536;
-  font-weight: 700;
+.career-card {
+  p:first-child {
+    color: #725536;
+    font-weight: 700;
+  }
+
+  .card-actions button:first-child:not(:last-child) {
+    background: #8a6742;
+
+    &:hover {
+      background: #735638;
+      opacity: 1;
+    }
+  }
 }
 
 #root > div:has(> .follow-up-card.is-pending) {
