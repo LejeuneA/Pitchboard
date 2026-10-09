@@ -310,19 +310,19 @@ function App() {
                 type="button"
                 onClick={() => setFreelanceRecordFilter('Application')}
               >
-                Pending
+                Application
               </button>
 
               <button
                 type="button"
                 onClick={() => setFreelanceRecordFilter('Partner Lead')}
               >
-                Done
+                Partner Lead
               </button>
             </div>
 
             {
-              records.map((record) =>
+              visibleFreelanceRecords.map((record) =>
                 <div key={record.id}>
                   <FreelanceRecordCard item={record} onDelete={handleFreelanceDelete} onEdit={handleFreelanceRecordEdit} />
                 </div>
