@@ -510,5 +510,53 @@
     "focus": "UX/UI / Figma / Web Design / Digital Design / Visual Design / Responsive Interfaces / Frontend-aware Design / Agency Support",
     "note": "Applied to Bald Creative's global freelancer pool for future project-based collaboration. Primary discipline positioned as UX/UI Design with Frontend Development as a complementary discipline, supported by a long professional background in visual and digital design.",
     "status": "SENT — Waiting for reply"
+  },
+  {
+    "id": "fl-033",
+    "date": "2026-10-12",
+    "name": "CODEMONKEY | NORTH",
+    "entityType": "Company",
+    "recordCategory": "Partner Lead",
+    "location": "Leeds / UK",
+    "opportunity": "UI/UX & Figma Collaboration for Client Projects",
+    "type": "Developer Partnership / White-label / Complementary Specialist Collaboration",
+    "action": "Direct partnership outreach sent",
+    "website": "https://www.codemonkeynorth.co.uk/",
+    "portfolio": "https://acelyalejeune.com/freelance.html",
+    "focus": "Figma / UI/UX / Responsive Web / Web Applications / Design Systems / Developer Handoff / PHP / Laravel Collaboration",
+    "note": "Independent development partner working with designers and agencies on client projects across web applications, WordPress, Laravel and backend systems. Outreach positioned me as a complementary UI/UX and Figma partner for projects that need dedicated interface design before or alongside development.",
+    "status": "SENT — Waiting for reply"
+  },
+  {
+    "id": "fl-034",
+    "date": "2026-10-13",
+    "name": "KAROLINA JABŁOŃSKA",
+    "entityType": "Person",
+    "recordCategory": "Partner Lead",
+    "location": "Remote / Europe",
+    "opportunity": "UI/UX & Figma Collaboration for Client Projects",
+    "type": "Developer Partnership / White-label / Complementary Specialist Collaboration",
+    "action": "Direct partnership outreach sent by email",
+    "website": "https://jablonska.dev/en",
+    "portfolio": "https://acelyalejeune.com/freelance.html",
+    "focus": "Figma / UI/UX / Responsive Product Interfaces / Design Systems / React / Next.js / Accessibility / Developer Handoff",
+    "note": "Independent senior frontend developer working with agencies, startups and product teams. She works from Figma designs and explicitly collaborates with trusted designers when projects require design support. Outreach positioned me as a complementary UI/UX and Figma partner, with reciprocal potential for React, Next.js and accessibility-focused frontend implementation.",
+    "status": "SENT — Waiting for reply"
+  },
+  {
+    "id": "fl-035",
+    "date": "2026-10-13",
+    "name": "DIGERATI",
+    "entityType": "Company",
+    "recordCategory": "Partner Lead",
+    "location": "Guernsey / Remote",
+    "opportunity": "UI/UX & Figma Collaboration for Webflow Projects",
+    "type": "Developer Partnership / White-label / Complementary Specialist Collaboration",
+    "action": "Direct partnership outreach sent by email",
+    "website": "https://www.digerati.design/",
+    "portfolio": "https://acelyalejeune.com/freelance.html",
+    "focus": "Figma / UI/UX / Responsive Web Design / Webflow / Design Systems / Accessibility / Developer Handoff",
+    "note": "Independent Webflow specialist working with agencies and startups on white-label and client projects. Digerati explicitly works from Figma files and partners with trusted designers when needed. Outreach positioned me as additional UI/UX and Figma capacity for websites, redesigns and digital experiences, with reciprocal potential for Webflow development and technical integrations.",
+    "status": "SENT — Waiting for reply"
   }
 ]
